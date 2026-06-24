@@ -11,7 +11,7 @@
             transition: transform 8s ease-in-out;
         }
 
-        /* Crossfade animation logic for the videos to bypass browser autoplay restrictions */
+        /* Crossfade animation logic for the secondary video panel */
         @keyframes videoCrossfade {
             0%, 45% { opacity: 1; }
             50%, 95% { opacity: 0; }
@@ -24,14 +24,6 @@
         }
         .vid-layer-1 { animation: videoCrossfade 15s infinite; }
         .vid-layer-2 { animation: videoCrossfadeDelayed 15s infinite; }
-
-        /* Carousel visibility helper styles */
-        .carousel-slide {
-            display: none;
-        }
-        .carousel-slide.active {
-            display: block;
-        }
     </style>
 </head>
 <body class="bg-neutral-50 text-neutral-800 font-sans antialiased selection:bg-emerald-600 selection:text-white">
@@ -79,35 +71,15 @@
             </div>
         </div>
 
-        <div class="lg:col-span-7 relative group rounded-3xl overflow-hidden shadow-xl border border-neutral-200 bg-neutral-900 aspect-video">
-            <div id="carouselContainer" class="w-full h-full relative">
-                <div class="carousel-slide active w-full h-full relative">
-                    <video class="w-full h-full object-cover scale-105" autoplay muted loop playsinline>
-                        <source src="vaj ulliri mulli.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-sm">
-                        <p class="font-semibold">Modern Olive Production</p>
-                        <p class="text-xs text-neutral-300">High-efficiency harvesting and processing systems.</p>
-                    </div>
-                </div>
-
-                <div class="carousel-slide w-full h-full relative">
-                    <div class="w-full h-full bg-neutral-800 flex items-center justify-center relative">
-                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white text-sm">
-                            <p class="font-semibold">Next-Gen Bio-Processing</p>
-                            <p class="text-xs text-neutral-300">Advancing high-TRL industrial solutions.</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-xl border border-neutral-200 bg-neutral-900 aspect-video">
+            <video class="w-full h-full object-cover scale-105" autoplay muted loop playsinline>
+                <source src="vaj ulliri mulli.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-sm">
+                <p class="font-semibold">Modern Olive Production</p>
+                <p class="text-xs text-neutral-300">High-efficiency harvesting and processing systems.</p>
             </div>
-
-            <button onclick="moveSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition z-10">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button onclick="moveSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition z-10">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
         </div>
     </header>
 
@@ -191,158 +163,4 @@
     <section id="committees" class="max-w-7xl mx-auto px-6 py-16 border-b border-neutral-200">
         <div class="text-center max-w-2xl mx-auto mb-12">
             <h2 class="text-3xl font-bold text-neutral-900 tracking-tight">Expert Technical Committees</h2>
-            <p class="text-neutral-500 text-sm mt-2">Driven by premium global institutional insight across agricultural, environmental, and technological discovery systems.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
-                <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
-                    <i class="fa-solid fa-users-gear"></i>
-                    <span>Advisory Panel</span>
-                </h3>
-                <ul class="text-xs space-y-3 text-neutral-600">
-                    <li><strong>Manfred W. Wiebelt</strong> <span class="text-neutral-400 block">Kiel Institute for the World Economy</span></li>
-                    <li><strong>Harmen Lehment</strong> <span class="text-neutral-400 block">Kiel Institute for the World Economy</span></li>
-                    <li><strong>Olive Lenk</strong> <span class="text-neutral-400 block">Ludwig-Maximilians-Universität München</span></li>
-                    <li><strong>Maria Rocca</strong> <span class="text-neutral-400 block">Ludwig-Maximilians-Universität München</span></li>
-                    <li><strong>Juliane Mohr</strong> <span class="text-neutral-400 block">Friedrich Schiller University Jena</span></li>
-                    <li><strong>Orhan Eren</strong> <span class="text-neutral-400 block">Bursa Technical University</span></li>
-                    <li><strong>Nurdan Akbaş</strong> <span class="text-neutral-400 block">Dokuz Eylül University</span></li>
-                    <li><strong>Aysun Sehirli</strong> <span class="text-neutral-400 block">University of Saskatchewan</span></li>
-                    <li><strong>Aysun Ələsgərova</strong> <span class="text-neutral-400 block">Nakhchivan State University</span></li>
-                    <li><strong>Ols Tengera</strong> <span class="text-neutral-400 block">University of Rwanda</span></li>
-                    <li><strong>Oliver Khaliq</strong> <span class="text-neutral-400 block">University of KwaZulu-Natal</span></li>
-                </ul>
-            </div>
-
-            <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
-                <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
-                    <i class="fa-solid fa-user-check"></i>
-                    <span>Reviewer Committee</span>
-                </h3>
-                <ul class="text-xs space-y-3 text-neutral-600">
-                    <li><strong>Ibette And</strong> <span class="text-neutral-400 block">Cornell University</span></li>
-                    <li><strong>Oya Köseoğlu</strong> <span class="text-neutral-400 block">Martin Luther Universität Halle-Wittenberg</span></li>
-                    <li><strong>Adnan Dagdele</strong> <span class="text-neutral-400 block">Western Norway University of Applied Sciences</span></li>
-                    <li><strong>Nand Aytaç Gümüşkesen</strong> <span class="text-neutral-400 block">Hajee Mohammad Danesh Science & Tech</span></li>
-                    <li><strong>Le Yu</strong> <span class="text-neutral-400 block">Chinese University of Hong Kong</span></li>
-                    <li><strong>Yongjin Wang</strong> <span class="text-neutral-400 block">Kyoto Tachibana University</span></li>
-                    <li><strong>Jun Jin</strong> <span class="text-neutral-400 block">American Oil Chemists' Society</span></li>
-                    <li><strong>Gangcheng Wu</strong> <span class="text-neutral-400 block">University of Udine</span></li>
-                    <li><strong>Dr. Subrata Sarkar</strong> <span class="text-neutral-400 block">Odisha University of Agriculture</span></li>
-                    <li><strong>Qingzhe Jinand</strong> <span class="text-neutral-400 block">Universidad Autónoma de San Luis Potosí</span></li>
-                    <li><strong>Xingguo Wang</strong> <span class="text-neutral-400 block">Universidad Nacional de Mar del Plata</span></li>
-                    <li><strong>Pinkesh Shah</strong> <span class="text-neutral-400 block">Gujarat Technological University, India</span></li>
-                </ul>
-            </div>
-
-            <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
-                <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
-                    <i class="fa-solid fa-microscope"></i>
-                    <span>Technical Panel</span>
-                </h3>
-                <ul class="text-xs space-y-3 text-neutral-600">
-                    <li class="flex justify-between items-start">
-                        <div><strong>Zamzam Elmi</strong><span class="text-neutral-400 block">LUT University</span></div>
-                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">4664-7344</span>
-                    </li>
-                    <li class="flex justify-between items-start">
-                        <div><strong>Maryam Paknahad</strong><span class="text-neutral-400 block">Lorestan Univ of Med Sciences</span></div>
-                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">9428-6780</span>
-                    </li>
-                    <li class="flex justify-between items-start">
-                        <div><strong>Parvin Alizada</strong><span class="text-neutral-400 block">Azerbaijan University</span></div>
-                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">0526-4757</span>
-                    </li>
-                    <li class="flex justify-between items-start">
-                        <div><strong>Parvin Rajabi</strong><span class="text-neutral-400 block">University of Isfahan</span></div>
-                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">3639-9318</span>
-                    </li>
-                    <li class="flex justify-between items-start">
-                        <div><strong>M. Saeed Tadayon</strong><span class="text-neutral-400 block">Shiraz University, SWRI</span></div>
-                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">4026-7407</span>
-                    </li>
-                    <li class="flex justify-between items-start">
-                        <div><strong>S. Mashaallah Hosseini</strong><span class="text-neutral-400 block">Shiraz University, SWRI</span></div>
-                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">4973-1190</span>
-                    </li>
-                    <li class="flex justify-between items-start">
-                        <div><strong>Sohrab Sadeghi</strong><span class="text-neutral-400 block">Fars Agriculture Center</span></div>
-                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">2122-891X</span>
-                    </li>
-                    <li class="flex justify-between items-start">
-                        <div><strong>Tassneem Zamzam</strong><span class="text-neutral-400 block">Qatar Petrochemical Co.</span></div>
-                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">7862-4820</span>
-                    </li>
-                    <li class="flex justify-between items-start">
-                        <div><strong>Andrea Olivé Olivé</strong><span class="text-neutral-400 block">Autonomous Univ of Barcelona</span></div>
-                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">6844-1190</span>
-                    </li>
-                    <li class="flex justify-between items-start">
-                        <div><strong>Olive Cocoman</strong><span class="text-neutral-400 block">World Health Organization</span></div>
-                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">6898-008X</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="sponsors" class="bg-neutral-100 py-16 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h3 class="text-center text-xs font-bold uppercase tracking-widest text-neutral-400 mb-10">Institutional Backing & Corporate Patrons</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center text-center">
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">FAO</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">European Commission</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">DG AGRI</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">College of Europe, Bruges</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Universitat Politècnica de Catalunya</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UN HABITAT</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UNIDO</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">WIPO</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">World Customs Organization</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Rensselaer Polytechnic Institute</div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-neutral-900 text-neutral-400 py-8 px-6 text-center text-xs border-t border-neutral-800">
-        <p>&copy; 2026 AgriNext Conference Matrix. Hosted securely on GitHub Pages platform. All rights reserved.</p>
-    </footer>
-
-    <script>
-        // 1. Photo Carousel Logic
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        
-        function showSlide(index) {
-            if(slides.length === 0) return;
-            slides.forEach(slide => slide.classList.remove('active'));
-            currentSlide = (index + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        
-        function moveSlide(step) {
-            showSlide(currentSlide + step);
-        }
-        setInterval(() => moveSlide(1), 5000);
-
-        // 2. Ambient Audio Overlay Toggle
-        const allegroAudio = document.getElementById('allegroAudio');
-        const audioIcon = document.getElementById('audioIcon');
-        const audioText = document.getElementById('audioText');
-
-        function toggleAllegroMusic() {
-            if (allegroAudio.paused) {
-                allegroAudio.volume = 0.15;
-                allegroAudio.play();
-                audioIcon.className = "fa-solid fa-volume-high text-emerald-600";
-                audioText.innerText = "Mute Music";
-            } else {
-                allegroAudio.pause();
-                audioIcon.className = "fa-solid fa-volume-xmark";
-                audioText.innerText = "Play Music";
-            }
-        }
-    </script>
-</body>
-</html>
+            <p class="text-neutral-500 text-sm mt-
