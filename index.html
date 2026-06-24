@@ -68,7 +68,7 @@
                 <div class="w-full h-full bg-emerald-950 flex flex-col justify-center items-center text-center p-8">
                     <i class="fa-solid fa-flask-vial text-emerald-400 text-5xl mb-4"></i>
                     <h3 class="text-white text-xl font-bold mb-2">Molecular & Phenolic Tracking</h3>
-                    <p class="text-emerald-200 text-sm max-w-md">Bridging raw agronomy with precision pharmaceutical standard extraction systems.</p>
+                    <p class="text-emerald-200 text-sm max-w-md">Bridging raw agronomy with precision extraction systems.</p>
                 </div>
                 <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white text-sm">
                     <p class="font-semibold">Next-Gen Bio-Processing</p>
@@ -88,24 +88,27 @@
         <div class="lg:col-span-5 space-y-4">
             <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-2">Live Production Feed</h3>
             <div class="relative rounded-2xl overflow-hidden shadow-lg border border-neutral-200 aspect-video bg-black">
-                <video id="agriVideo" class="w-full h-full object-cover" autoplay loop muted playsinline>
+                <video id="conferenceVideo" class="w-full h-full object-cover" autoplay muted playsinline>
                     <source src="vaj ulliri prodhim.mp4" type="video/mp4">
-                    <source src="vaj ulliri mulli.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <audio id="bgMusic" loop>
+                
+                <audio id="allegroAudio" loop>
                     <source src="https://assets.mixkit.co/music/preview/mixkit-classical-allegro-962.mp3" type="audio/mpeg">
                 </audio>
+
                 <div class="absolute top-3 right-3 bg-neutral-900/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-emerald-400 tracking-wider flex items-center space-x-1.5">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     <span>15s METRIC DECK</span>
                 </div>
-                <button onclick="toggleAudio()" id="audioBtn" class="absolute bottom-3 right-3 bg-white hover:bg-neutral-100 text-neutral-800 p-2 rounded-full text-xs shadow transition flex items-center space-x-1">
+                
+                <button onclick="toggleAllegroMusic()" id="audioCtrlBtn" class="absolute bottom-3 right-3 bg-white hover:bg-neutral-100 text-neutral-800 px-3 py-1.5 rounded-full text-xs font-medium shadow transition flex items-center space-x-1.5">
                     <i id="audioIcon" class="fa-solid fa-volume-xmark"></i>
+                    <span id="audioText">Play Music</span>
                 </button>
             </div>
             <p class="text-xs text-neutral-500 italic text-center">
-                Toggle button to stream the custom inviting Allegro background arrangement softly.
+                Toggle button to hear inviting Allegro background arrangements softly.
             </p>
         </div>
 
@@ -276,7 +279,7 @@
     </footer>
 
     <script>
-        // Photo Carousel Logics
+        // 1. Photo Carousel Logic
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         
@@ -290,23 +293,38 @@
             showSlide(currentSlide + step);
         }
         
-        // Auto rotate carousel every 5 seconds
+        // Auto-rotate the hero photo carousel every 5 seconds
         setInterval(() => moveSlide(1), 5000);
 
-        // Audio Activation Logics for Video Node
-        const video = document.getElementById('agriVideo');
-        const audio = document.getElementById('bgMusic');
-        const audioBtn = document.getElementById('audioBtn');
-        const audioIcon = document.getElementById('audioIcon');
 
-        function toggleAudio() {
-            if (audio.paused) {
-                audio.volume = 0.15; // Kept quiet on background as requested
-                audio.play();
+        // 2. Uploaded Videos Active Small Window Logic (15 seconds total sequence loop)
+        const conferenceVideos = ["vaj ulliri prodhim.mp4", "vaj ulliri mulli.mp4"];
+        let currentVideoIndex = 0;
+
+        const videoPlayer = document.getElementById('conferenceVideo');
+        const allegroAudio = document.getElementById('allegroAudio');
+        const audioIcon = document.getElementById('audioIcon');
+        const audioText = document.getElementById('audioText');
+
+        // Automatically switches video source after 7.5 seconds to balance exactly within a 15-second loop
+        setInterval(() => {
+            currentVideoIndex = (currentVideoIndex + 1) % conferenceVideos.length;
+            videoPlayer.src = conferenceVideos[currentVideoIndex];
+            videoPlayer.play().catch(err => console.log("Playback context waiting for user gesture"));
+        }, 7500);
+
+
+        // 3. Ambient Allegro Audio Overlay Toggle Logic
+        function toggleAllegroMusic() {
+            if (allegroAudio.paused) {
+                allegroAudio.volume = 0.15; // Soft ambient volume footprint
+                allegroAudio.play();
                 audioIcon.className = "fa-solid fa-volume-high text-emerald-600";
+                audioText.innerText = "Mute Music";
             } else {
-                audio.pause();
+                allegroAudio.pause();
                 audioIcon.className = "fa-solid fa-volume-xmark";
+                audioText.innerText = "Play Music";
             }
         }
     </script>
