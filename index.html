@@ -1,120 +1,314 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Olive Conference 2026</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Agri-Tech Conference 2026</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        h1 { color: #2E7D32; }
-        .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 60px 0; background: #F1F8E9; }
-        .video-section { padding: 60px 0; text-align: center; }
-        .description { padding: 40px 0; background: #2E7D32; color: white; text-align: center; }
-        .program { padding: 60px 0; }
-        .program-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .program-card { background: #F1F8E9; padding: 20px; border-radius: 10px; border-left: 4px solid #2E7D32; }
-        .committees { padding: 60px 0; background: #F1F8E9; }
-        .sponsors { padding: 60px 0; }
-        .sponsors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .sponsor-card { background: #F1F8E9; padding: 30px; border-radius: 10px; text-align: center; }
-        .cta { padding: 80px 0; background: linear-gradient(135deg, #2E7D32, #1B5E20); color: white; text-align: center; }
-        .btn { background: #2E7D32; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; display: inline-block; font-weight: bold; }
+        .carousel-slide { display: none; }
+        .carousel-slide.active { display: block; }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="hero">
-            <div>
-                <h1>International Conference on Olive Oil & Table Olives</h1>
-                <p><strong>📅 When:</strong> September 26-30, 2026</p>
-                <p><strong>📍 Where:</strong> College of Europe, Bruges, Belgium</p>
-                <p><strong>👥 Who:</strong> Researchers, Academia, Tech Leaders & Agriculture Agencies</p>
-                <br>
-                <a href="#register" class="btn">Register Now</a>
-            </div>
-            <div style="background: linear-gradient(135deg, #667eea, #764ba2); height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
-                Image Carousel Here
+<body class="bg-neutral-50 text-neutral-800 font-sans antialiased selection:bg-emerald-600 selection:text-white">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2 text-emerald-700 font-bold text-xl tracking-tight">
+            <i class="fa-solid fa-seedling"></i>
+            <span>AgriNext 2026</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-neutral-600">
+            <a href="#programme" class="hover:text-emerald-600 transition">Programme</a>
+            <a href="#committees" class="hover:text-emerald-600 transition">Committees</a>
+            <a href="#about" class="hover:text-emerald-600 transition">About</a>
+            <a href="#sponsors" class="hover:text-emerald-600 transition">Supporters</a>
+        </div>
+        <a href="#register" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition shadow-sm">Register Now</a>
+    </nav>
+
+    <header class="max-w-7xl mx-auto px-6 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-b border-neutral-200">
+        <div class="lg:col-span-5 space-y-6">
+            <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                International Forum
+            </span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-neutral-900 tracking-tight leading-tight">
+                Sustainable <span class="text-emerald-600">Olive Engineering</span> & Future Agriculture
+            </h1>
+            
+            <hr class="border-neutral-200 my-4" />
+            
+            <div class="space-y-4 text-sm sm:text-base">
+                <div class="flex items-start space-x-3">
+                    <div class="text-emerald-600 mt-1"><i class="fa-solid fa-calendar-days fa-lg"></i></div>
+                    <div>
+                        <p class="font-semibold text-neutral-900">September 26–30, 2026</p>
+                        <p class="text-xs text-neutral-500">Five days of parallel technical tracks</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <div class="text-emerald-600 mt-1"><i class="fa-solid fa-location-dot fa-lg"></i></div>
+                    <div>
+                        <p class="font-semibold text-neutral-900">College of Europe & Online</p>
+                        <p class="text-xs text-neutral-500">Dijver 11, 8000 Bruges, Belgium</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="video-section">
-            <h2>Why Attend?</h2>
-            <div style="background: #000; height: 400px; border-radius: 20px; margin: 30px 0; display: flex; align-items: center; justify-content: center; color: white;">
-                🎥 Conference Video (15 seconds)
+        <div class="lg:col-span-7 relative group rounded-3xl overflow-hidden shadow-xl border border-neutral-200 bg-neutral-900 aspect-video">
+            <div class="carousel-slide active h-full w-full">
+                <img src="ullinj 2.jpg" alt="Premium Harvested Olives" class="w-full h-full object-cover transition duration-700 hover:scale-105">
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-sm">
+                    <p class="font-semibold">Optimised Harvester Assessment</p>
+                    <p class="text-xs text-neutral-300">Evaluating quality metrics in modern olive production lines.</p>
+                </div>
             </div>
-            <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
-                <li>🔗 DOI - Permanent digital access</li>
-                <li>📚 ISBN & ISSN published proceedings</li>
-                <li>🔍 Google Scholar indexed & DG AGRI archived</li>
-                <li>✅ ORCID Compliant & ROR Integrated</li>
-                <li>🤝 Make New Connections!</li>
-            </ul>
-        </div>
+            <div class="carousel-slide h-full w-full">
+                <div class="w-full h-full bg-emerald-950 flex flex-col justify-center items-center text-center p-8">
+                    <i class="fa-solid fa-flask-vial text-emerald-400 text-5xl mb-4"></i>
+                    <h3 class="text-white text-xl font-bold mb-2">Molecular & Phenolic Tracking</h3>
+                    <p class="text-emerald-200 text-sm max-w-md">Bridging raw agronomy with precision pharmaceutical standard extraction systems.</p>
+                </div>
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white text-sm">
+                    <p class="font-semibold">Next-Gen Bio-Processing</p>
+                </div>
+            </div>
 
-        <div class="description">
-            <h2>About the Conference</h2>
-            <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto;">
-                Global summit on olive oil quality, regulatory standards, and agricultural innovation for researchers, industry leaders, and policymakers.
+            <button onclick="moveSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button onclick="moveSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </header>
+
+    <section id="programme" class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start border-b border-neutral-200">
+        <div class="lg:col-span-5 space-y-4">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-2">Live Production Feed</h3>
+            <div class="relative rounded-2xl overflow-hidden shadow-lg border border-neutral-200 aspect-video bg-black">
+                <video id="agriVideo" class="w-full h-full object-cover" autoplay loop muted playsinline>
+                    <source src="vaj ulliri prodhim.mp4" type="video/mp4">
+                    <source src="vaj ulliri mulli.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <audio id="bgMusic" loop>
+                    <source src="https://assets.mixkit.co/music/preview/mixkit-classical-allegro-962.mp3" type="audio/mpeg">
+                </audio>
+                <div class="absolute top-3 right-3 bg-neutral-900/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-emerald-400 tracking-wider flex items-center space-x-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>15s METRIC DECK</span>
+                </div>
+                <button onclick="toggleAudio()" id="audioBtn" class="absolute bottom-3 right-3 bg-white hover:bg-neutral-100 text-neutral-800 p-2 rounded-full text-xs shadow transition flex items-center space-x-1">
+                    <i id="audioIcon" class="fa-solid fa-volume-xmark"></i>
+                </button>
+            </div>
+            <p class="text-xs text-neutral-500 italic text-center">
+                Toggle button to stream the custom inviting Allegro background arrangement softly.
             </p>
         </div>
 
-        <div class="program">
-            <h2 style="text-align: center;">Conference Program</h2>
-            <div class="program-grid">
-                <div class="program-card">
-                    <h3>1. Regulatory Harmonization</h3>
-                    <p><em>EU Marketing Standards for Agricultural Goods</em></p>
-                    <p>Harmonizing Conformity Checks Across Member States</p>
+        <div class="lg:col-span-7 space-y-6">
+            <h2 class="text-3xl font-bold text-neutral-900 tracking-tight">The Modern Agricultural Revolution</h2>
+            <p class="text-neutral-600 leading-relaxed text-sm sm:text-base">
+                Discover the nexus of technical innovation and field deployment. This edition addresses the deep challenges within regional distribution networks, technological deployment roadblocks, and standard compliance frameworks across modern global cultivation footprints.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div class="bg-white p-4 rounded-xl border border-neutral-200 shadow-sm flex items-start space-x-3">
+                    <div class="text-emerald-600"><i class="fa-solid fa-fingerprint fa-lg"></i></div>
+                    <div>
+                        <h4 class="font-semibold text-neutral-900 text-sm">Indexed & Verified Output</h4>
+                        <p class="text-xs text-neutral-500 mt-0.5">DOI alignment, fully integrated with ROR and ORCID validation compliance ecosystems.</p>
+                    </div>
                 </div>
-                <div class="program-card">
-                    <h3>2. Quality Control & Categorization</h3>
-                    <p><em>Sensory Evaluation in Food Classification</em></p>
-                    <p>Differentiating Extra Virgin and Virgin Olive Oil</p>
-                </div>
-                <div class="program-card">
-                    <h3>3. Product Deterioration & Logistics</h3>
-                    <p><em>Post-Production Quality Degradation</em></p>
-                    <p>Impacts of Transport and Storage on Organoleptic Defects</p>
-                </div>
-                <div class="program-card">
-                    <h3>4. International Trade Standards</h3>
-                    <p><em>Global Food Chemistry Methodologies</em></p>
-                    <p>Integrating International Olive Council Analytical Updates</p>
-                </div>
-                <div class="program-card">
-                    <h3>5. Administrative Enforcement</h3>
-                    <p><em>European Union Anti-Fraud Systems</em></p>
-                    <p>Notifying Non-Compliance via Implementing Regulation (EU) 2019/1715</p>
-                </div>
-                <div class="program-card">
-                    <h3>6. Food Dispute Resolution</h3>
-                    <p><em>Legal Appeals in Agrifood Inspection</em></p>
-                    <p>Panel Selection Criteria for Product Counter-Assessments</p>
+                <div class="bg-white p-4 rounded-xl border border-neutral-200 shadow-sm flex items-start space-x-3">
+                    <div class="text-emerald-600"><i class="fa-solid fa-book-open fa-lg"></i></div>
+                    <div>
+                        <h4 class="font-semibold text-neutral-900 text-sm">Persistent Repositories</h4>
+                        <p class="text-xs text-neutral-500 mt-0.5">Proceedings published under certified ISBN/ISSN, indexed natively via Google Scholar and DG AGRI repository.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="sponsors">
-            <h2 style="text-align: center;">Sponsors & Supporters</h2>
-            <div class="sponsors-grid">
-                <div class="sponsor-card"><h3>FAO</h3></div>
-                <div class="sponsor-card"><h3>European Commission</h3></div>
-                <div class="sponsor-card"><h3>DG AGRI</h3></div>
-                <div class="sponsor-card"><h3>College of Europe, Bruges</h3></div>
-                <div class="sponsor-card"><h3>Universitat Politècnica de Catalunya</h3></div>
-                <div class="sponsor-card"><h3>UN HABITAT</h3></div>
-                <div class="sponsor-card"><h3>UNIDO</h3></div>
-                <div class="sponsor-card"><h3>WIPO</h3></div>
-                <div class="sponsor-card"><h3>World Customs Organization</h3></div>
-                <div class="sponsor-card"><h3>Rensselaer Polytechnic Institute</h3></div>
+            <div id="register" class="bg-gradient-to-r from-emerald-800 to-emerald-950 p-6 rounded-2xl text-white shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h4 class="font-bold text-lg">Secure Your Delegate Access</h4>
+                    <p class="text-emerald-200 text-xs">Hybrid presentation openings close shortly. Register your track seat today.</p>
+                </div>
+                <a href="https://github.com" target="_blank" class="bg-white hover:bg-neutral-100 text-emerald-900 text-xs font-bold px-6 py-3 rounded-xl transition text-center whitespace-nowrap shadow-sm">
+                    <i class="fa-brands fa-github mr-2"></i>Apply via GitHub Portal
+                </a>
             </div>
         </div>
+    </section>
 
-        <div class="cta" id="register">
-            <h2>Join Us in Bruges</h2>
-            <p style="font-size: 1.3rem;">Be part of the next revolution in modern agriculture</p>
-            <br>
-            <a href="#" class="btn" style="background: white; color: #2E7D32;">Register Now</a>
+    <section id="about" class="bg-emerald-900 text-white py-12 px-6 shadow-inner text-center">
+        <div class="max-w-3xl mx-auto space-y-3">
+            <h3 class="text-emerald-300 font-bold uppercase tracking-widest text-xs">Conference Mission</h3>
+            <blockquote class="text-xl sm:text-2xl font-medium tracking-tight leading-relaxed">
+                "Embracing modern agricultural revolutions, this global conference unites researchers and tech leaders in Bruges to advance sustainable olive engineering solutions."
+            </blockquote>
+            <div class="w-12 h-1 bg-emerald-400 mx-auto mt-4 rounded-full"></div>
         </div>
-    </div>
+    </section>
+
+    <section id="committees" class="max-w-7xl mx-auto px-6 py-16 border-b border-neutral-200">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold text-neutral-900 tracking-tight">Expert Technical Committees</h2>
+            <p class="text-neutral-500 text-sm mt-2">Driven by premium global institutional insight across agricultural, environmental, and technological discovery systems.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span>Advisory Panel</span>
+                </h3>
+                <ul class="text-xs space-y-3 text-neutral-600">
+                    <li><strong>Manfred W. Wiebelt</strong> <span class="text-neutral-400 block">Kiel Institute for the World Economy</span></li>
+                    <li><strong>Harmen Lehment</strong> <span class="text-neutral-400 block">Kiel Institute for the World Economy</span></li>
+                    <li><strong>Olive Lenk</strong> <span class="text-neutral-400 block">Ludwig-Maximilians-Universität München</span></li>
+                    <li><strong>Maria Rocca</strong> <span class="text-neutral-400 block">Ludwig-Maximilians-Universität München</span></li>
+                    <li><strong>Juliane Mohr</strong> <span class="text-neutral-400 block">Friedrich Schiller University Jena</span></li>
+                    <li><strong>Orhan Eren</strong> <span class="text-neutral-400 block">Bursa Technical University</span></li>
+                    <li><strong>Nurdan Akbaş</strong> <span class="text-neutral-400 block">Dokuz Eylül University</span></li>
+                    <li><strong>Aysun Sehirli</strong> <span class="text-neutral-400 block">University of Saskatchewan</span></li>
+                    <li><strong>Aysun Ələsgərova</strong> <span class="text-neutral-400 block">Nakhchivan State University</span></li>
+                    <li><strong>Ols Tengera</strong> <span class="text-neutral-400 block">University of Rwanda</span></li>
+                    <li><strong>Oliver Khaliq</strong> <span class="text-neutral-400 block">University of KwaZulu-Natal</span></li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
+                    <i class="fa-solid fa-user-check"></i>
+                    <span>Reviewer Committee</span>
+                </h3>
+                <ul class="text-xs space-y-3 text-neutral-600">
+                    <li><strong>Ibette And</strong> <span class="text-neutral-400 block">Cornell University</span></li>
+                    <li><strong>Oya Köseoğlu</strong> <span class="text-neutral-400 block">Martin Luther Universität Halle-Wittenberg</span></li>
+                    <li><strong>Adnan Dagdele</strong> <span class="text-neutral-400 block">Western Norway University of Applied Sciences</span></li>
+                    <li><strong>Nand Aytaç Gümüşkesen</strong> <span class="text-neutral-400 block">Hajee Mohammad Danesh Science & Tech</span></li>
+                    <li><strong>Le Yu</strong> <span class="text-neutral-400 block">Chinese University of Hong Kong</span></li>
+                    <li><strong>Yongjin Wang</strong> <span class="text-neutral-400 block">Kyoto Tachibana University</span></li>
+                    <li><strong>Jun Jin</strong> <span class="text-neutral-400 block">American Oil Chemists' Society</span></li>
+                    <li><strong>Gangcheng Wu</strong> <span class="text-neutral-400 block">University of Udine</span></li>
+                    <li><strong>Dr. Subrata Sarkar</strong> <span class="text-neutral-400 block">Odisha University of Agriculture</span></li>
+                    <li><strong>Qingzhe Jinand</strong> <span class="text-neutral-400 block">Universidad Autónoma de San Luis Potosí</span></li>
+                    <li><strong>Xingguo Wang</strong> <span class="text-neutral-400 block">Universidad Nacional de Mar del Plata</span></li>
+                    <li><strong>Pinkesh Shah</strong> <span class="text-neutral-400 block">Gujarat Technological University, India</span></li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
+                    <i class="fa-solid fa-microscope"></i>
+                    <span>Technical Panel</span>
+                </h3>
+                <ul class="text-xs space-y-3 text-neutral-600">
+                    <li class="flex justify-between items-start">
+                        <div><strong>Zamzam Elmi</strong><span class="text-neutral-400 block">LUT University</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">4664-7344</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Maryam Paknahad</strong><span class="text-neutral-400 block">Lorestan Univ of Med Sciences</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">9428-6780</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Parvin Alizada</strong><span class="text-neutral-400 block">Azerbaijan University</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">0526-4757</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Parvin Rajabi</strong><span class="text-neutral-400 block">University of Isfahan</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">3639-9318</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>M. Saeed Tadayon</strong><span class="text-neutral-400 block">Shiraz University, SWRI</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">4026-7407</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>S. Mashaallah Hosseini</strong><span class="text-neutral-400 block">Shiraz University, SWRI</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">4973-1190</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Sohrab Sadeghi</strong><span class="text-neutral-400 block">Fars Agriculture Research Center</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">2122-891X</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Tassneem Zamzam</strong><span class="text-neutral-400 block">Qatar Petrochemical Co.</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">7862-4820</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Andrea Olivé Olivé</strong><span class="text-neutral-400 block">Autonomous Univ of Barcelona</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">6844-1190</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Olive Cocoman</strong><span class="text-neutral-400 block">World Health Organization</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">6898-008X</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="sponsors" class="bg-neutral-100 py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-center text-xs font-bold uppercase tracking-widest text-neutral-400 mb-10">Institutional Backing & Corporate Patrons</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center text-center">
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">FAO</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">European Commission</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">DG AGRI</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">College of Europe, Bruges</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Universitat Politècnica de Catalunya</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UN HABITAT</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UNIDO</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">WIPO</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">World Customs Organization</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Rensselaer Polytechnic Institute</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-neutral-900 text-neutral-400 py-8 px-6 text-center text-xs border-t border-neutral-800">
+        <p>&copy; 2026 AgriNext Conference Matrix. Hosted securely on GitHub Pages platform. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Photo Carousel Logics
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        function moveSlide(step) {
+            showSlide(currentSlide + step);
+        }
+        
+        // Auto rotate carousel every 5 seconds
+        setInterval(() => moveSlide(1), 5000);
+
+        // Audio Activation Logics for Video Node
+        const video = document.getElementById('agriVideo');
+        const audio = document.getElementById('bgMusic');
+        const audioBtn = document.getElementById('audioBtn');
+        const audioIcon = document.getElementById('audioIcon');
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.volume = 0.15; // Kept quiet on background as requested
+                audio.play();
+                audioIcon.className = "fa-solid fa-volume-high text-emerald-600";
+            } else {
+                audio.pause();
+                audioIcon.className = "fa-solid fa-volume-xmark";
+            }
+        }
+    </script>
 </body>
 </html>
