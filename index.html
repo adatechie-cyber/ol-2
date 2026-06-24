@@ -6,9 +6,10 @@
     <title>Olive Conference 2026</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .carousel-slide { display: none; }
-        .carousel-slide.active { display: block; }
+    <video class="w-full h-full object-cover scale-105" autoplay muted loop playsinline>
+        video {
+    transition: transform 8s ease-in-out;
+}
 
         /* Crossfade animation logic for the videos to bypass browser autoplay restrictions */
         @keyframes videoCrossfade {
