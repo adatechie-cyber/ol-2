@@ -160,7 +160,7 @@
         </div>
     </section>
 
-    <section id="committees" class="max-w-7xl mx-auto px-6 py-16 border-b border-neutral-200">
+   <section id="committees" class="max-w-7xl mx-auto px-6 py-16 border-b border-neutral-200">
         <div class="text-center max-w-2xl mx-auto mb-12">
             <h2 class="text-3xl font-bold text-neutral-900 tracking-tight">Expert Technical Committees</h2>
             <p class="text-neutral-500 text-sm mt-2">Driven by premium global institutional insight across agricultural, environmental, and technological discovery systems.</p>
@@ -263,16 +263,16 @@
         <div class="max-w-7xl mx-auto">
             <h3 class="text-center text-xs font-bold uppercase tracking-widest text-neutral-400 mb-10">Institutional Backing & Corporate Patrons</h3>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center text-center">
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">FAO</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">European Commission</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">DG AGRI</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">College of Europe, Bruges</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Universitat Politècnica de Catalunya</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UN HABITAT</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UNIDO</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">WIPO</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">World Customs Organization</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Rensselaer Polytechnic Institute</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">FAO</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">European Commission</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">DG AGRI</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">College of Europe, Bruges</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Universitat Politècnica de Catalunya</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UN HABITAT</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UNIDO</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">WIPO</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">World Customs Organization</div>
+                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Rensselaer Polytechnic Institute</div>
             </div>
         </div>
     </section>
@@ -287,7 +287,6 @@
         const slides = document.querySelectorAll('.carousel-slide');
         
         function showSlide(index) {
-            if(slides.length === 0) return;
             slides.forEach(slide => slide.classList.remove('active'));
             currentSlide = (index + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
