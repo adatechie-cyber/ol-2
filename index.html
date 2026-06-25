@@ -1,134 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Olive Conference 2026</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olive Conference 2026</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        video {
+            transition: transform 8s ease-in-out;
+        }
 
-  <!-- Tailwind & FontAwesome -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    video {
-      transition: opacity 0.5s ease-in-out;
-      will-change: transform, opacity;
-    }
-
-    /* Crossfade animations */
-    @keyframes videoCrossfade {
-      0%, 45% { opacity: 1; }
-      50%, 95% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    @keyframes videoCrossfadeDelayed {
-      0%, 45% { opacity: 0; }
-      50%, 95% { opacity: 1; }
-      100% { opacity: 0; }
-    }
-    .vid-layer-1 { animation: videoCrossfade 15s infinite; }
-    .vid-layer-2 { animation: videoCrossfadeDelayed 15s infinite; }
-  </style>
+        /* Crossfade animation logic for the secondary video panel */
+        @keyframes videoCrossfade {
+            0%, 45% { opacity: 1; }
+            50%, 95% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes videoCrossfadeDelayed {
+            0%, 45% { opacity: 0; }
+            50%, 95% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .vid-layer-1 { animation: videoCrossfade 15s infinite; }
+        .vid-layer-2 { animation: videoCrossfadeDelayed 15s infinite; }
+    </style>
 </head>
+<body class="bg-neutral-50 text-neutral-800 font-sans antialiased selection:bg-emerald-600 selection:text-white">
 
-<body class="bg-neutral-50 text-neutral-800 font-sans antialiased">
-
-  <!-- Navigation -->
-  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200 px-6 py-4 flex justify-between items-center">
-    <div class="flex items-center space-x-2 text-emerald-700 font-bold text-xl tracking-tight">
-      <i class="fa-solid fa-seedling"></i>
-      <span>AgriNext 2026</span>
-    </div>
-    <div class="hidden md:flex space-x-8 text-sm font-medium text-neutral-600">
-      <a href="#programme" class="hover:text-emerald-600 transition">Programme</a>
-      <a href="#committees" class="hover:text-emerald-600 transition">Committees</a>
-      <a href="#about" class="hover:text-emerald-600 transition">About</a>
-      <a href="#sponsors" class="hover:text-emerald-600 transition">Supporters</a>
-    </div>
-    <a href="#register" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition shadow-sm">Register Now</a>
-  </nav>
-
-  <!-- Hero -->
-  <header class="max-w-7xl mx-auto px-6 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-b border-neutral-200">
-    <div class="lg:col-span-5 space-y-6">
-      <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">International Forum</span>
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-neutral-900 tracking-tight leading-tight">
-        Sustainable <span class="text-emerald-600">Olive Oil Engineering</span> & Table Olives
-      </h1>
-      <hr class="border-neutral-200 my-4" />
-      <div class="space-y-4 text-sm sm:text-base">
-        <div class="flex items-start space-x-3">
-          <div class="text-emerald-600 mt-1"><i class="fa-solid fa-calendar-days fa-lg"></i></div>
-          <div>
-            <p class="font-semibold text-neutral-900">September 26–30, 2026</p>
-            <p class="text-xs text-neutral-500">Five days of parallel technical tracks</p>
-          </div>
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2 text-emerald-700 font-bold text-xl tracking-tight">
+            <i class="fa-solid fa-seedling"></i>
+            <span>AgriNext 2026</span>
         </div>
-        <div class="flex items-start space-x-3">
-          <div class="text-emerald-600 mt-1"><i class="fa-solid fa-location-dot fa-lg"></i></div>
-          <div>
-            <p class="font-semibold text-neutral-900">College of Europe & Online</p>
-            <p class="text-xs text-neutral-500">Dijver 11, 8000 Bruges, Belgium</p>
-          </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-neutral-600">
+            <a href="#programme" class="hover:text-emerald-600 transition">Programme</a>
+            <a href="#committees" class="hover:text-emerald-600 transition">Committees</a>
+            <a href="#about" class="hover:text-emerald-600 transition">About</a>
+            <a href="#sponsors" class="hover:text-emerald-600 transition">Supporters</a>
         </div>
-      </div>
-    </div>
+        <a href="#register" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition shadow-sm">Register Now</a>
+    </nav>
 
-    <!-- Hero Video -->
-    <div class="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-xl border border-neutral-200 bg-neutral-900 aspect-video group cursor-pointer" onclick="forcePlayHero(this)">
-      <video id="hero-video" class="w-full h-full object-cover" autoplay muted loop playsinline preload="auto">
-        <source src="Shartimi-i-ullirit.mp4" type="video/mp4">
-      </video>
-      <div id="hero-tap-overlay" class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 group-hover:bg-black/10 transition z-10">
-        <div class="w-14 h-14 rounded-full bg-emerald-600/90 text-white flex items-center justify-center text-xl shadow-lg animate-pulse group-hover:scale-110 transition">
-          <i class="fa-solid fa-play ml-1"></i>
+    <header class="max-w-7xl mx-auto px-6 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-b border-neutral-200">
+        <div class="lg:col-span-5 space-y-6">
+            <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                International Forum
+            </span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-neutral-900 tracking-tight leading-tight">
+                Sustainable <span class="text-emerald-600">Olive Oil Engineering</span> & Table Olives
+            </h1>
+            
+            <hr class="border-neutral-200 my-4" />
+            
+            <div class="space-y-4 text-sm sm:text-base">
+                <div class="flex items-start space-x-3">
+                    <div class="text-emerald-600 mt-1"><i class="fa-solid fa-calendar-days fa-lg"></i></div>
+                    <div>
+                        <p class="font-semibold text-neutral-900">September 26–30, 2026</p>
+                        <p class="text-xs text-neutral-500">Five days of parallel technical tracks</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <div class="text-emerald-600 mt-1"><i class="fa-solid fa-location-dot fa-lg"></i></div>
+                    <div>
+                        <p class="font-semibold text-neutral-900">College of Europe & Online</p>
+                        <p class="text-xs text-neutral-500">Dijver 11, 8000 Bruges, Belgium</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="text-white font-medium text-xs mt-3 tracking-wide drop-shadow-md">Tap to Stream</p>
-      </div>
-      <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 text-white text-sm z-20 pointer-events-none">
-        <p class="font-semibold">Modern Olive Production</p>
-        <p class="text-xs text-neutral-300">High-efficiency harvesting and processing systems.</p>
-      </div>
-    </div>
-  </header>
 
-  <!-- Programme -->
-  <section id="programme" class="max-w-7xl mx-auto px-6 py-16 border-b border-neutral-200">
-    <h2 class="text-3xl font-bold text-neutral-900 tracking-tight mb-6">The Modern Agricultural Revolution</h2>
-    <p class="text-neutral-600 leading-relaxed text-sm sm:text-base">
-      Discover the nexus of technical innovation and field deployment. This edition addresses deep challenges within distribution networks, technological development bottlenecks, and regulatory standard compliance frameworks.
-    </p>
-  </section>
+        <div class="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-xl border border-neutral-200 bg-neutral-900 aspect-video">
+            <video class="w-full h-full object-cover scale-105" autoplay muted loop playsinline>
+                <source src="vaj ulliri mulli.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-sm">
+                <p class="font-semibold">Modern Olive Production</p>
+                <p class="text-xs text-neutral-300">High-efficiency harvesting and processing systems.</p>
+            </div>
+        </div>
+    </header>
 
-  <!-- Committees -->
-  <section id="committees" class="max-w-7xl mx-auto px-6 py-16 border-b border-neutral-200">
-    <h2 class="text-3xl font-bold text-neutral-900 tracking-tight mb-6">Expert Technical Committees</h2>
-    <!-- Keep your committee lists here (unchanged from original) -->
-  </section>
+    <section id="programme" class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start border-b border-neutral-200">
+        <div class="lg:col-span-5 space-y-4">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-2">Live Production Feed</h3>
+            <div class="relative rounded-2xl overflow-hidden shadow-lg border border-neutral-200 aspect-video bg-black">
+                
+                <video class="vid-layer-1 absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
+                    <source src="vaj%20ulliri%20prodhim.mp4" type="video/mp4">
+                </video>
 
-  <!-- Sponsors -->
-  <section id="sponsors" class="bg-neutral-100 py-16 px-6">
-    <h3 class="text-center text-xs font-bold uppercase tracking-widest text-neutral-400 mb-10">Institutional Backing & Corporate Patrons</h3>
-    <!-- Sponsor grid unchanged -->
-  </section>
+                <video class="vid-layer-2 absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
+                    <source src="vaj%20ulliri%20mulli.mp4" type="video/mp4">
+                </video>
+                
+                <audio id="allegroAudio" loop>
+                    <source src="https://assets.mixkit.co/music/preview/mixkit-classical-allegro-962.mp3" type="audio/mpeg">
+                </audio>
 
-  <!-- Footer -->
-  <footer class="bg-neutral-900 text-neutral-400 py-8 px-6 text-center text-xs border-t border-neutral-800">
-    <p>&copy; Olives2026. Hosted securely on Scientiae-Naturalis.org platform. All rights reserved.</p>
-  </footer>
+                <div class="absolute top-3 right-3 z-20 bg-neutral-900/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-emerald-400 tracking-wider flex items-center space-x-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>15s METRIC DECK</span>
+                </div>
+                
+                <button onclick="toggleAllegroMusic()" id="audioCtrlBtn" class="absolute bottom-3 right-3 z-20 bg-white hover:bg-neutral-100 text-neutral-800 px-3 py-1.5 rounded-full text-xs font-medium shadow transition flex items-center space-x-1.5">
+                    <i id="audioIcon" class="fa-solid fa-volume-xmark"></i>
+                    <span id="audioText">Play Music</span>
+                </button>
+            </div>
+            <p class="text-xs text-neutral-500 italic text-center">
+                Toggle button to hear inviting Allegro background arrangements softly.
+            </p>
+        </div>
 
-  <!-- Scripts -->
-  <script>
-    function forcePlayHero(container) {
-      const video = document.getElementById('hero-video');
-      video.play().then(() => {
-        document.getElementById('hero-tap-overlay').style.display = 'none';
-      }).catch(() => {
-        video.muted = true;
-        video.play();
-        document.getElementById('hero-tap-overlay').style.display = 'none';
-      });
-    }
-  </script>
+        <div class="lg:col-span-7 space-y-6">
+            <h2 class="text-3xl font-bold text-neutral-900 tracking-tight">The Modern Agricultural Revolution</h2>
+            <p class="text-neutral-600 leading-relaxed text-sm sm:text-base">
+                Discover the nexus of technical innovation and field deployment. This edition addresses deep challenges within distribution networks, technological development bottlenecks, and regulatory standard compliance frameworks.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div class="bg-white p-4 rounded-xl border border-neutral-200 shadow-sm flex items-start space-x-3">
+                    <div class="text-emerald-600"><i class="fa-solid fa-fingerprint fa-lg"></i></div>
+                    <div>
+                        <h4 class="font-semibold text-neutral-900 text-sm">Indexed & Verified Output</h4>
+                        <p class="text-xs text-neutral-500 mt-0.5">DOI alignment, fully integrated with ROR and ORCID validation compliance ecosystems.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-neutral-200 shadow-sm flex items-start space-x-3">
+                    <div class="text-emerald-600"><i class="fa-solid fa-book-open fa-lg"></i></div>
+                    <div>
+                        <h4 class="font-semibold text-neutral-900 text-sm">Persistent Repositories</h4>
+                        <p class="text-xs text-neutral-500 mt-0.5">Proceedings published under certified ISBN/ISSN, indexed natively via Google Scholar and DG AGRI repository.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="register" class="bg-gradient-to-r from-emerald-800 to-emerald-950 p-6 rounded-2xl text-white shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h4 class="font-bold text-lg">Secure Your Delegate Access</h4>
+                    <p class="text-emerald-200 text-xs">Hybrid presentation openings close shortly. Register your track seat today.</p>
+                </div>
+                <a href="https://github.com" target="_blank" class="bg-white hover:bg-neutral-100 text-emerald-900 text-xs font-bold px-6 py-3 rounded-xl transition text-center whitespace-nowrap shadow-sm">
+                    <i class="fa-brands fa-github mr-2"></i>Apply via GitHub Portal
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bg-emerald-900 text-white py-12 px-6 shadow-inner text-center">
+        <div class="max-w-3xl mx-auto space-y-3">
+            <h3 class="text-emerald-300 font-bold uppercase tracking-widest text-xs">Conference Mission</h3>
+            <blockquote class="text-xl sm:text-2xl font-medium tracking-tight leading-relaxed">
+                "Embracing modern agricultural revolutions, this global conference unites researchers and tech leaders in Bruges to advance sustainable olive engineering solutions."
+            </blockquote>
+            <div class="w-12 h-1 bg-emerald-400 mx-auto mt-4 rounded-full"></div>
+        </div>
+    </section>
+
+    <section id="committees" class="max-w-7xl mx-auto px-6 py-16 border-b border-neutral-200">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold text-neutral-900 tracking-tight">Expert Technical Committees</h2>
+            <p class="text-neutral-500 text-sm mt-2">Driven by premium global institutional insight across agricultural, environmental, and technological discovery systems.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span>Advisory Panel</span>
+                </h3>
+                <ul class="text-xs space-y-3 text-neutral-600">
+                    <li><strong>Manfred W. Wiebelt</strong> <span class="text-neutral-400 block">Kiel Institute for the World Economy</span></li>
+                    <li><strong>Harmen Lehment</strong> <span class="text-neutral-400 block">Kiel Institute for the World Economy</span></li>
+                    <li><strong>Olive Lenk</strong> <span class="text-neutral-400 block">Ludwig-Maximilians-Universität München</span></li>
+                    <li><strong>Maria Rocca</strong> <span class="text-neutral-400 block">Ludwig-Maximilians-Universität München</span></li>
+                    <li><strong>Juliane Mohr</strong> <span class="text-neutral-400 block">Friedrich Schiller University Jena</span></li>
+                    <li><strong>Orhan Eren</strong> <span class="text-neutral-400 block">Bursa Technical University</span></li>
+                    <li><strong>Nurdan Akbaş</strong> <span class="text-neutral-400 block">Dokuz Eylül University</span></li>
+                    <li><strong>Aysun Sehirli</strong> <span class="text-neutral-400 block">University of Saskatchewan</span></li>
+                    <li><strong>Aysun Ələsgərova</strong> <span class="text-neutral-400 block">Nakhchivan State University</span></li>
+                    <li><strong>Ols Tengera</strong> <span class="text-neutral-400 block">University of Rwanda</span></li>
+                    <li><strong>Oliver Khaliq</strong> <span class="text-neutral-400 block">University of KwaZulu-Natal</span></li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
+                    <i class="fa-solid fa-user-check"></i>
+                    <span>Reviewer Committee</span>
+                </h3>
+                <ul class="text-xs space-y-3 text-neutral-600">
+                    <li><strong>Ibette And</strong> <span class="text-neutral-400 block">Cornell University</span></li>
+                    <li><strong>Oya Köseoğlu</strong> <span class="text-neutral-400 block">Martin Luther Universität Halle-Wittenberg</span></li>
+                    <li><strong>Adnan Dagdele</strong> <span class="text-neutral-400 block">Western Norway University of Applied Sciences</span></li>
+                    <li><strong>Nand Aytaç Gümüşkesen</strong> <span class="text-neutral-400 block">Hajee Mohammad Danesh Science & Tech</span></li>
+                    <li><strong>Le Yu</strong> <span class="text-neutral-400 block">Chinese University of Hong Kong</span></li>
+                    <li><strong>Yongjin Wang</strong> <span class="text-neutral-400 block">Kyoto Tachibana University</span></li>
+                    <li><strong>Jun Jin</strong> <span class="text-neutral-400 block">American Oil Chemists' Society</span></li>
+                    <li><strong>Gangcheng Wu</strong> <span class="text-neutral-400 block">University of Udine</span></li>
+                    <li><strong>Dr. Subrata Sarkar</strong> <span class="text-neutral-400 block">Odisha University of Agriculture</span></li>
+                    <li><strong>Qingzhe Jinand</strong> <span class="text-neutral-400 block">Universidad Autónoma de San Luis Potosí</span></li>
+                    <li><strong>Xingguo Wang</strong> <span class="text-neutral-400 block">Universidad Nacional de Mar del Plata</span></li>
+                    <li><strong>Pinkesh Shah</strong> <span class="text-neutral-400 block">Gujarat Technological University, India</span></li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
+                    <i class="fa-solid fa-microscope"></i>
+                    <span>Technical Panel</span>
+                </h3>
+                <ul class="text-xs space-y-3 text-neutral-600">
+                    <li class="flex justify-between items-start">
+                        <div><strong>Zamzam Elmi</strong><span class="text-neutral-400 block">LUT University</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">4664-7344</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Maryam Paknahad</strong><span class="text-neutral-400 block">Lorestan Univ of Med Sciences</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">9428-6780</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Parvin Alizada</strong><span class="text-neutral-400 block">Azerbaijan University</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">0526-4757</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Parvin Rajabi</strong><span class="text-neutral-400 block">University of Isfahan</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">3639-9318</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>M. Saeed Tadayon</strong><span class="text-neutral-400 block">Shiraz University, SWRI</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">4026-7407</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>S. Mashaallah Hosseini</strong><span class="text-neutral-400 block">Shiraz University, SWRI</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">4973-1190</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Sohrab Sadeghi</strong><span class="text-neutral-400 block">Fars Agriculture Center</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">2122-891X</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Tassneem Zamzam</strong><span class="text-neutral-400 block">Qatar Petrochemical Co.</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">7862-4820</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Andrea Olivé Olivé</strong><span class="text-neutral-400 block">Autonomous Univ of Barcelona</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">6844-1190</span>
+                    </li>
+                    <li class="flex justify-between items-start">
+                        <div><strong>Olive Cocoman</strong><span class="text-neutral-400 block">World Health Organization</span></div>
+                        <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">6898-008X</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="sponsors" class="bg-neutral-100 py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-center text-xs font-bold uppercase tracking-widest text-neutral-400 mb-10">Institutional Backing & Corporate Patrons</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center text-center">
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">FAO</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">European Commission</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">DG AGRI</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">College of Europe, Bruges</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Universitat Politècnica de Catalunya</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UN HABITAT</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UNIDO</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">WIPO</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">World Customs Organization</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Rensselaer Polytechnic Institute</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-neutral-900 text-neutral-400 py-8 px-6 text-center text-xs border-t border-neutral-800">
+        <p>&copy; 2026 AgriNext Conference Matrix. Hosted securely on GitHub Pages platform. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Ambient Audio Overlay Toggle Logic
+        const allegroAudio = document.getElementById('allegroAudio');
+        const audioIcon = document.getElementById('audioIcon');
+        const audioText = document.getElementById('audioText');
+
+        function toggleAllegroMusic() {
+            if (allegroAudio.paused) {
+                allegroAudio.volume = 0.15;
+                allegroAudio.play();
+                audioIcon.className = "fa-solid fa-volume-high text-emerald-600";
+                audioText.innerText = "Mute Music";
+            } else {
+                allegroAudio.pause();
+                audioIcon.className = "fa-solid fa-volume-xmark";
+                audioText.innerText = "Play Music";
+            }
+        }
+    </script>
 </body>
 </html>
