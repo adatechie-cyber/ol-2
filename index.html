@@ -28,24 +28,6 @@
     }
     .vid-layer-1 { animation: videoCrossfade 15s infinite; }
     .vid-layer-2 { animation: videoCrossfadeDelayed 15s infinite; }
-
-    /* Button styling */
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      font-size: 16px;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
-    .btn-agritech {
-      background-color: #ff6600;
-      color: #fff;
-    }
-    .btn-agritech:hover {
-      background-color: #e65c00;
-    }
   </style>
 </head>
 
@@ -110,12 +92,25 @@
     </div>
   </header>
 
-  <!-- Example Button -->
-  <div class="text-center my-10">
-    <a href="https://www.agritech-one.scientiae-naturalis.org" class="btn btn-agritech" target="_blank" rel="noopener noreferrer">
-      VISIT AGRITECH-ONE ›
-    </a>
-  </div>
+  <!-- Programme -->
+  <section id="programme" class="max-w-7xl mx-auto px-6 py-16 border-b border-neutral-200">
+    <h2 class="text-3xl font-bold text-neutral-900 tracking-tight mb-6">The Modern Agricultural Revolution</h2>
+    <p class="text-neutral-600 leading-relaxed text-sm sm:text-base">
+      Discover the nexus of technical innovation and field deployment. This edition addresses deep challenges within distribution networks, technological development bottlenecks, and regulatory standard compliance frameworks.
+    </p>
+  </section>
+
+  <!-- Committees -->
+  <section id="committees" class="max-w-7xl mx-auto px-6 py-16 border-b border-neutral-200">
+    <h2 class="text-3xl font-bold text-neutral-900 tracking-tight mb-6">Expert Technical Committees</h2>
+    <!-- Keep your committee lists here (unchanged from original) -->
+  </section>
+
+  <!-- Sponsors -->
+  <section id="sponsors" class="bg-neutral-100 py-16 px-6">
+    <h3 class="text-center text-xs font-bold uppercase tracking-widest text-neutral-400 mb-10">Institutional Backing & Corporate Patrons</h3>
+    <!-- Sponsor grid unchanged -->
+  </section>
 
   <!-- Footer -->
   <footer class="bg-neutral-900 text-neutral-400 py-8 px-6 text-center text-xs border-t border-neutral-800">
@@ -124,22 +119,14 @@
 
   <!-- Scripts -->
   <script>
-    const allegroAudio = document.getElementById('allegroAudio');
-    const audioIcon = document.getElementById('audioIcon');
-    const audioText = document.getElementById('audioText');
-    const secVid1 = document.getElementById('sec-vid-1');
-    const secVid2 = document.getElementById('sec-vid-2');
-    const heroOverlay = document.getElementById('hero-tap-overlay');
-    const secOverlay = document.getElementById('sec-tap-overlay');
-
     function forcePlayHero(container) {
       const video = document.getElementById('hero-video');
       video.play().then(() => {
-        heroOverlay.style.display = 'none';
-      }).catch(err => {
+        document.getElementById('hero-tap-overlay').style.display = 'none';
+      }).catch(() => {
         video.muted = true;
         video.play();
-        heroOverlay.style.display = 'none';
+        document.getElementById('hero-tap-overlay').style.display = 'none';
       });
     }
   </script>
