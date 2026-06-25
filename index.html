@@ -9,9 +9,10 @@
     <style>
         video {
             transition: transform 8s ease-in-out;
+            will-change: transform, opacity;
         }
 
-        /* Crossfade animation logic for the secondary video panel */
+        /* Hardware-accelerated crossfade animation logic for mobile */
         @keyframes videoCrossfade {
             0%, 45% { opacity: 1; }
             50%, 95% { opacity: 0; }
@@ -45,10 +46,10 @@
     <header class="max-w-7xl mx-auto px-6 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-b border-neutral-200">
         <div class="lg:col-span-5 space-y-6">
             <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-                International Scientific Conference
+                International Forum
             </span>
             <h1 class="text-4xl sm:text-5xl font-extrabold text-neutral-900 tracking-tight leading-tight">
-                Sustainable <span class="text-emerald-600">Olive Oil </span> & Table Olives
+                Sustainable <span class="text-emerald-600">Olive Oil Engineering</span> & Table Olives
             </h1>
             
             <hr class="border-neutral-200 my-4" />
@@ -71,12 +72,12 @@
             </div>
         </div>
 
-        <div class="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-xl border border-neutral-200 bg-neutral-900 aspect-video">
-            <video class="w-full h-full object-cover scale-105" autoplay muted loop playsinline>
-                <source src="shartimi i ullirit.mp4" type="video/mp4">
+        <div class="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-xl border border-neutral-200 bg-neutral-900 aspect-video cursor-pointer" onclick="this.querySelector('video').play()">
+            <video class="w-full h-full object-cover scale-105" autoplay muted loop playsinline preload="auto">
+                <source src="vaj ulliri mulli.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-sm">
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-sm pointer-events-none">
                 <p class="font-semibold">Modern Olive Production</p>
                 <p class="text-xs text-neutral-300">High-efficiency harvesting and processing systems.</p>
             </div>
@@ -86,26 +87,26 @@
     <section id="programme" class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start border-b border-neutral-200">
         <div class="lg:col-span-5 space-y-4">
             <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-2">Live Production Feed</h3>
-            <div class="relative rounded-2xl overflow-hidden shadow-lg border border-neutral-200 aspect-video bg-black">
+            <div class="relative rounded-2xl overflow-hidden shadow-lg border border-neutral-200 aspect-video bg-black cursor-pointer" onclick="playBothSecondaryVideos()">
                 
-                <video class="vid-layer-1 absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
+                <video id="sec-vid-1" class="vid-layer-1 absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline preload="auto">
                     <source src="vaj%20ulliri%20prodhim.mp4" type="video/mp4">
                 </video>
 
-                <video class="vid-layer-2 absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
-                    <source src="vaj%20ulliri%20prodhim.mp4" type="video/mp4">
+                <video id="sec-vid-2" class="vid-layer-2 absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline preload="auto">
+                    <source src="vaj%20ulliri%20mulli.mp4" type="video/mp4">
                 </video>
                 
                 <audio id="allegroAudio" loop>
                     <source src="https://assets.mixkit.co/music/preview/mixkit-classical-allegro-962.mp3" type="audio/mpeg">
                 </audio>
 
-                <div class="absolute top-3 right-3 z-20 bg-neutral-900/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-emerald-400 tracking-wider flex items-center space-x-1.5">
+                <div class="absolute top-3 right-3 z-20 bg-neutral-900/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-emerald-400 tracking-wider flex items-center space-x-1.5 pointer-events-none">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     <span>15s METRIC DECK</span>
                 </div>
                 
-                <button onclick="toggleAllegroMusic()" id="audioCtrlBtn" class="absolute bottom-3 right-3 z-20 bg-white hover:bg-neutral-100 text-neutral-800 px-3 py-1.5 rounded-full text-xs font-medium shadow transition flex items-center space-x-1.5">
+                <button onclick="event.stopPropagation(); toggleAllegroMusic()" id="audioCtrlBtn" class="absolute bottom-3 right-3 z-20 bg-white hover:bg-neutral-100 text-neutral-800 px-3 py-1.5 rounded-full text-xs font-medium shadow transition flex items-center space-x-1.5">
                     <i id="audioIcon" class="fa-solid fa-volume-xmark"></i>
                     <span id="audioText">Play Music</span>
                 </button>
@@ -115,7 +116,7 @@
             </p>
         </div>
 
-       <div class="lg:col-span-7 space-y-6">
+        <div class="lg:col-span-7 space-y-6">
             <h2 class="text-3xl font-bold text-neutral-900 tracking-tight">The Modern Agricultural Revolution</h2>
             <p class="text-neutral-600 leading-relaxed text-sm sm:text-base">
                 Discover the nexus of technical innovation and field deployment. This edition addresses deep challenges within distribution networks, technological development bottlenecks, and regulatory standard compliance frameworks.
@@ -160,7 +161,7 @@
         </div>
     </section>
 
-   <section id="committees" class="max-w-7xl mx-auto px-6 py-16 border-b border-neutral-200">
+    <section id="committees" class="max-w-7xl mx-auto px-6 py-16 border-b border-neutral-200">
         <div class="text-center max-w-2xl mx-auto mb-12">
             <h2 class="text-3xl font-bold text-neutral-900 tracking-tight">Expert Technical Committees</h2>
             <p class="text-neutral-500 text-sm mt-2">Driven by premium global institutional insight across agricultural, environmental, and technological discovery systems.</p>
@@ -263,16 +264,16 @@
         <div class="max-w-7xl mx-auto">
             <h3 class="text-center text-xs font-bold uppercase tracking-widest text-neutral-400 mb-10">Institutional Backing & Corporate Patrons</h3>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center text-center">
-                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">FAO</div>
-                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">European Commission</div>
-                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">DG AGRI</div>
-                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">College of Europe, Bruges</div>
-                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Universitat Politècnica de Catalunya</div>
-                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UN HABITAT</div>
-                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UNIDO</div>
-                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">WIPO</div>
-                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">World Customs Organization</div>
-                <div class="bg-white p-4 rounded-xl shadow-2xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Rensselaer Polytechnic Institute</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">FAO</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">European Commission</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">DG AGRI</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">College of Europe, Bruges</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Universitat Politècnica de Catalunya</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UN HABITAT</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UNIDO</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">WIPO</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">World Customs Organization</div>
+                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Rensselaer Polytechnic Institute</div>
             </div>
         </div>
     </section>
@@ -282,25 +283,17 @@
     </footer>
 
     <script>
-        // 1. Photo Carousel Logic
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            currentSlide = (index + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        
-        function moveSlide(step) {
-            showSlide(currentSlide + step);
-        }
-        setInterval(() => moveSlide(1), 5000);
-
-        // 2. Ambient Audio Overlay Toggle
         const allegroAudio = document.getElementById('allegroAudio');
         const audioIcon = document.getElementById('audioIcon');
         const audioText = document.getElementById('audioText');
+        const secVid1 = document.getElementById('sec-vid-1');
+        const secVid2 = document.getElementById('sec-vid-2');
+
+        // Unblock secondary tracks if blocked on mobile
+        function playBothSecondaryVideos() {
+            secVid1.play().catch(e => console.log("Playback engine handled:", e));
+            secVid2.play().catch(e => console.log("Playback engine handled:", e));
+        }
 
         function toggleAllegroMusic() {
             if (allegroAudio.paused) {
@@ -308,6 +301,8 @@
                 allegroAudio.play();
                 audioIcon.className = "fa-solid fa-volume-high text-emerald-600";
                 audioText.innerText = "Mute Music";
+                // Simultaneously trigger video playback context through the user click event
+                playBothSecondaryVideos();
             } else {
                 allegroAudio.pause();
                 audioIcon.className = "fa-solid fa-volume-xmark";
