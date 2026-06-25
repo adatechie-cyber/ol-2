@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olives 2026</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         video {
             transition: transform 8s ease-in-out;
         }
-
         /* Crossfade animation logic for the secondary video panel */
         @keyframes videoCrossfade {
             0%, 45% { opacity: 1; }
@@ -27,7 +26,6 @@
     </style>
 </head>
 <body class="bg-neutral-50 text-neutral-800 font-sans antialiased selection:bg-emerald-600 selection:text-white">
-
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200 px-6 py-4 flex justify-between items-center">
         <div class="flex items-center space-x-2 text-emerald-700 font-bold text-xl tracking-tight">
             <i class="fa-solid fa-seedling"></i>
@@ -50,9 +48,7 @@
             <h1 class="text-4xl sm:text-5xl font-extrabold text-neutral-900 tracking-tight leading-tight">
                 <span class="text-emerald-600">Olive Oil </span> & Table Olives
             </h1>
-            
             <hr class="border-neutral-200 my-4" />
-            
             <div class="space-y-4 text-sm sm:text-base">
                 <div class="flex items-start space-x-3">
                     <div class="text-emerald-600 mt-1"><i class="fa-solid fa-calendar-days fa-lg"></i></div>
@@ -70,7 +66,6 @@
                 </div>
             </div>
         </div>
-
         <div class="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-xl border border-neutral-200 bg-neutral-900 aspect-video">
             <video class="w-full h-full object-cover scale-105" autoplay muted loop playsinline>
                 <source src="Vaj-ulliri-prodhim.mp4" type="video/mp4">
@@ -87,24 +82,19 @@
         <div class="lg:col-span-5 space-y-4">
             <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-2">Live Production Feed</h3>
             <div class="relative rounded-2xl overflow-hidden shadow-lg border border-neutral-200 aspect-video bg-black">
-                
                 <video class="vid-layer-1 absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
                     <source src="Vaj-ulliri-prodhim.mp4" type="video/mp4">
                 </video>
-
                 <video class="vid-layer-2 absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
                     <source src="Shartimi-i-ullirit.mp4" type="video/mp4">
                 </video>
-                
                 <audio id="allegroAudio" loop>
                     <source src="https://assets.mixkit.co/music/preview/mixkit-classical-allegro-962.mp3" type="audio/mpeg">
                 </audio>
-
                 <div class="absolute top-3 right-3 z-20 bg-neutral-900/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-emerald-400 tracking-wider flex items-center space-x-1.5">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     <span>15s METRIC DECK</span>
                 </div>
-                
                 <button onclick="toggleAllegroMusic()" id="audioCtrlBtn" class="absolute bottom-3 right-3 z-20 bg-white hover:bg-neutral-100 text-neutral-800 px-3 py-1.5 rounded-full text-xs font-medium shadow transition flex items-center space-x-1.5">
                     <i id="audioIcon" class="fa-solid fa-volume-xmark"></i>
                     <span id="audioText">Play Music</span>
@@ -114,13 +104,11 @@
                 Toggle button to hear inviting Allegro background arrangements softly.
             </p>
         </div>
-
         <div class="lg:col-span-7 space-y-6">
             <h2 class="text-3xl font-bold text-neutral-900 tracking-tight">The Modern Agricultural Revolution</h2>
             <p class="text-neutral-600 leading-relaxed text-sm sm:text-base">
                 Discover the nexus of technical innovation and field deployment. This edition addresses deep challenges within distribution networks, technological development bottlenecks, and regulatory standard compliance frameworks.
             </p>
-
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div class="bg-white p-4 rounded-xl border border-neutral-200 shadow-sm flex items-start space-x-3">
                     <div class="text-emerald-600"><i class="fa-solid fa-fingerprint fa-lg"></i></div>
@@ -137,7 +125,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="register" class="bg-gradient-to-r from-emerald-800 to-emerald-950 p-6 rounded-2xl text-white shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                     <h4 class="font-bold text-lg">Secure Your Delegate Access</h4>
@@ -165,7 +152,6 @@
             <h2 class="text-3xl font-bold text-neutral-900 tracking-tight">Expert Technical Committees</h2>
             <p class="text-neutral-500 text-sm mt-2">Driven by premium global institutional insight across agricultural, environmental, and technological discovery systems.</p>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
                 <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
@@ -186,7 +172,6 @@
                     <li><strong>Oliver Khaliq</strong> <span class="text-neutral-400 block">University of KwaZulu-Natal</span></li>
                 </ul>
             </div>
-
             <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
                 <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
                     <i class="fa-solid fa-user-check"></i>
@@ -207,7 +192,6 @@
                     <li><strong>Pinkesh Shah</strong> <span class="text-neutral-400 block">Gujarat Technological University, India</span></li>
                 </ul>
             </div>
-
             <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-sm space-y-4">
                 <h3 class="font-bold text-neutral-900 pb-2 border-b border-neutral-100 flex items-center space-x-2 text-emerald-700">
                     <i class="fa-solid fa-microscope"></i>
@@ -217,7 +201,7 @@
                     <li class="flex justify-between items-start">
                         <div><strong>Zamzam Elmi</strong><span class="text-neutral-400 block">LUT University</span></div>
                         <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">4664-7344</span>
-                    </li>
+                    </li >
                     <li class="flex justify-between items-start">
                         <div><strong>Maryam Paknahad</strong><span class="text-neutral-400 block">Lorestan Univ of Med Sciences</span></div>
                         <span class="font-mono text-[10px] text-neutral-400 bg-neutral-100 px-1 py-0.5 rounded">9428-6780</span>
@@ -263,16 +247,16 @@
         <div class="max-w-7xl mx-auto">
             <h3 class="text-center text-xs font-bold uppercase tracking-widest text-neutral-400 mb-10">Institutional Backing & Corporate Patrons</h3>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center text-center">
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">FAO</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">European Commission</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">DG AGRI</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">College of Europe, Bruges</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Universitat Politècnica de Catalunya</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UN HABITAT</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UNIDO</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">WIPO</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">World Customs Organization</div>
-                <div class="bg-white p-4 rounded-xl shadow-xs border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Rensselaer Polytechnic Institute</div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">FAO</div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">European Commission</div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">DG AGRI</div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">College of Europe, Bruges</div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Universitat Politècnica de Catalunya</div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UN HABITAT</div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">UNIDO</div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">WIPO</div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">World Customs Organization</div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-neutral-200 text-neutral-700 text-xs font-bold tracking-tight">Rensselaer Polytechnic Institute</div>
             </div>
         </div>
     </section>
@@ -282,11 +266,9 @@
     </footer>
 
     <script>
-        // Ambient Audio Overlay Toggle Logic
         const allegroAudio = document.getElementById('allegroAudio');
         const audioIcon = document.getElementById('audioIcon');
         const audioText = document.getElementById('audioText');
-
         function toggleAllegroMusic() {
             if (allegroAudio.paused) {
                 allegroAudio.volume = 0.15;
