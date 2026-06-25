@@ -1,3 +1,0 @@
-git add index.html Vaj-ulliri-prodhim.mp4 Shartimi-i-ullirit.mp4
-git commit -m "Optimize video assets and update code layout for mobile"
-git push origin main
