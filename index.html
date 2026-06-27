@@ -5,189 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olive Conference 2026</title>
     <style>
-        /* ==========================================
-           1. MOBILE-ONLY VIEWPORT ENFORCEMENT
-           ========================================== */
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
+            font-family: Arial, sans-serif; 
             margin: 0; 
             padding: 0; 
-            background: #eceff1;
+            background-color: #f9f9f9;
+        }
+        
+        /* Centered container that scales beautifully on mobile-first formats */
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 15px; 
+            background: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        
+        h1 { color: #2E7D32; font-size: 1.8rem; margin-top: 0; }
+        h2 { color: #2E7D32; font-size: 1.5rem; }
+        
+        /* Responsive Hero layout optimized for mobile views */
+        .hero { 
+            display: flex; 
+            flex-direction: column-reverse; 
+            gap: 20px; 
+            padding: 40px 20px; 
+            background: #F1F8E9; 
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .hero-text {
+            text-align: left;
+        }
+        
+        @media(max-width: 600px) {
+            .hero-text { text-align: center; }
+        }
+        
+        .video-section { padding: 40px 10px; text-align: center; }
+        
+        .description { 
+            padding: 40px 20px; 
+            background: #2E7D32; 
+            color: white; 
+            text-align: center; 
+            border-radius: 12px;
+        }
+        
+        .program { padding: 40px 10px; }
+        
+        /* Mobile-friendly single column or compact grid layout */
+        .program-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 20px; 
+        }
+        
+        @media (min-width: 600px) {
+            .program-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        .program-card { 
+            background: #F1F8E9; 
+            padding: 20px; 
+            border-radius: 10px; 
+            border-left: 4px solid #2E7D32; 
+        }
+        
+        .sponsors { padding: 40px 10px; }
+        
+        /* Flexible grid wrapping safely on standard mobile viewports */
+        .sponsors-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px; 
+        }
+        
+        @media (min-width: 600px) {
+            .sponsors-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        .sponsor-card { 
+            background: #F1F8E9; 
+            padding: 15px 10px; 
+            border-radius: 10px; 
+            text-align: center; 
             display: flex;
+            align-items: center;
             justify-content: center;
         }
         
-        /* Forces an elegant smartphone aspect ratio on desktop, adapts cleanly to actual phones */
-        .container { 
-            max-width: 480px; 
-            width: 100%;
-            background: white; 
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 80px; /* Space so content isn't blocked by the sticky button */
-        }
-        
-        /* ==========================================
-           2. TYPOGRAPHY & SECTIONS
-           ========================================== */
-        h1, h2, h3 { color: #2E7D32; margin-top: 0; }
-        p { line-height: 1.5; color: #37474F; font-size: 0.95rem; }
-        
-        .hero { 
-            padding: 30px 20px; 
-            background: #F1F8E9; 
-            text-align: center;
-        }
-        
-        .carousel-placeholder {
-            background: linear-gradient(135deg, #2E7D32, #558B2F); 
-            height: 180px; 
-            border-radius: 15px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: white; 
-            font-size: 1.1rem;
-            margin: 20px 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .video-section { padding: 30px 20px; text-align: center; }
-        .video-box { 
-            background: #000; 
-            height: 200px; 
-            border-radius: 15px; 
-            margin: 20px 0; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: white; 
-        }
-        
-        .benefit-list { text-align: left; padding-left: 20px; margin: 15px 0; }
-        .benefit-list li { margin-bottom: 10px; font-size: 0.9rem; }
-
-        .description { padding: 30px 20px; background: #2E7D32; color: white; text-align: center; }
-        .description p { color: #DCEDC8; font-size: 1.1rem; margin: 0; }
-
-        .program { padding: 30px 20px; }
-        .program-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .program-card { background: #F1F8E9; padding: 15px; border-radius: 10px; border-left: 4px solid #2E7D32; }
-        .program-card h3 { margin-bottom: 5px; font-size: 1.05rem; }
-        .program-card p { margin: 5px 0 0 0; font-size: 0.85rem; }
-
-        .sponsors { padding: 30px 20px; background: #F1F8E9; }
-        .sponsors-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .sponsor-card { background: white; padding: 12px; border-radius: 8px; text-align: center; font-size: 0.85rem; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-
-        /* ==========================================
-           3. NATIVE INTEGRATED REGISTRATION FORM
-           ========================================== */
-        .form-section {
-            padding: 40px 20px;
-            background: #fafafa;
-            border-top: 2px dashed #E0E0E0;
-        }
-        
-        .form-group {
-            margin-bottom: 18px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
+        .sponsor-card h3 { 
+            margin: 0; 
+            font-size: 1rem; 
             color: #37474F;
-            font-size: 0.9rem;
         }
         
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #CFD8DC;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 1rem;
-            transition: border-color 0.2s;
+        .cta { 
+            padding: 60px 20px; 
+            background: linear-gradient(135deg, #2E7D32, #1B5E20); 
+            color: white; 
+            text-align: center; 
+            border-radius: 12px;
+            margin-top: 20px;
         }
         
-        .form-group input:focus {
-            outline: none;
-            border-color: #2E7D32;
-        }
-
-        #form-status {
-            text-align: center;
-            font-weight: bold;
-            margin-top: 15px;
-            padding: 10px;
-            border-radius: 6px;
-            display: none;
-        }
-
-        /* ==========================================
-           4. BUTTONS & STICKY FOOTER
-           ========================================== */
-        .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            max-width: 440px; /* Aligns smoothly within the 480px parent container */
-            width: 100%;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(8px);
-            padding: 12px 20px;
-            box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
-            text-align: center;
-            border-top: 1px solid #E0E0E0;
-            z-index: 999;
-            box-sizing: border-box;
-        }
-
+        /* Aesthetically styled interactive buttons hiding your link setup */
         .btn { 
             background: #2E7D32; 
             color: white; 
-            padding: 14px 0; 
+            padding: 15px 30px; 
             border-radius: 50px; 
             text-decoration: none; 
             display: inline-block; 
             font-weight: bold; 
-            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
-            transition: transform 0.1s ease-in-out, background-color 0.2s;
-            width: 100%;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            text-align: center;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .btn:active { transform: scale(0.98); }
-        .btn:disabled { background: #9E9E9E; box-shadow: none; cursor: not-allowed; }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
 <body>
-
     <div class="container">
-        
         <div class="hero">
-            <h1>International Conference on Olive Oil & Table Olives</h1>
-            <p><strong>📅 When:</strong> September 26-30, 2026</p>
-            <p><strong>📍 Where:</strong> College of Europe, Bruges, Belgium</p>
-            <p><strong>👥 Who:</strong> Researchers, Tech Leaders & Agriculture Agencies</p>
-            
-            <div class="carousel-placeholder">
+            <div class="hero-text">
+                <h1>International Conference on Olive Oil & Table Olives</h1>
+                <p><strong>📅 When:</strong> September 26-30, 2026</p>
+                <p><strong>📍 Where:</strong> College of Europe, Bruges, Belgium</p>
+                <p><strong>👥 Who:</strong> Researchers, Academia, Tech Leaders & Agriculture Agencies</p>
+                <br>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?usp=header" target="_blank" class="btn">Register Now</a>
+            </div>
+            <div style="background: linear-gradient(135deg, #667eea, #764ba2); height: 250px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; text-align: center; padding: 10px;">
                 Image Carousel Here
             </div>
-            
-            <a href="#registration-form" class="btn" style="width: 80%; font-size: 0.9rem; padding: 10px 0; background: #558B2F;">Jump to Registration</a>
         </div>
 
         <div class="video-section">
             <h2>Why Attend?</h2>
-            <div class="video-box">
+            <div style="background: #000; height: 250px; border-radius: 20px; margin: 20px 0; display: flex; align-items: center; justify-content: center; color: white;">
                 🎥 Conference Video (15 seconds)
             </div>
-            <ul class="benefit-list">
+            <ul style="text-align: left; max-width: 500px; margin: 0 auto; line-height: 1.6; color: #37474F;">
                 <li>🔗 DOI - Permanent digital access</li>
                 <li>📚 ISBN & ISSN published proceedings</li>
                 <li>🔍 Google Scholar indexed & DG AGRI archived</li>
@@ -198,138 +161,68 @@
 
         <div class="description">
             <h2>About the Conference</h2>
-            <p>Global summit on olive oil quality, regulatory standards, and agricultural innovation for researchers, industry leaders, and policymakers.</p>
+            <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                Global summit on olive oil quality, regulatory standards, and agricultural innovation for researchers, industry leaders, and policymakers.
+            </p>
         </div>
 
         <div class="program">
-            <h2 style="text-align: center; margin-bottom: 20px;">Conference Program</h2>
+            <h2 style="text-align: center; margin-bottom: 30px;">Conference Program</h2>
             <div class="program-grid">
                 <div class="program-card">
                     <h3>1. Regulatory Harmonization</h3>
+                    <p><em>EU Marketing Standards for Agricultural Goods</em></p>
                     <p>Harmonizing Conformity Checks Across Member States</p>
                 </div>
                 <div class="program-card">
                     <h3>2. Quality Control & Categorization</h3>
+                    <p><em>Sensory Evaluation in Food Classification</em></p>
                     <p>Differentiating Extra Virgin and Virgin Olive Oil</p>
                 </div>
                 <div class="program-card">
                     <h3>3. Product Deterioration & Logistics</h3>
+                    <p><em>Post-Production Quality Degradation</em></p>
                     <p>Impacts of Transport and Storage on Organoleptic Defects</p>
                 </div>
                 <div class="program-card">
                     <h3>4. International Trade Standards</h3>
+                    <p><em>Global Food Chemistry Methodologies</em></p>
                     <p>Integrating International Olive Council Analytical Updates</p>
                 </div>
                 <div class="program-card">
                     <h3>5. Administrative Enforcement</h3>
+                    <p><em>European Union Anti-Fraud Systems</em></p>
                     <p>Notifying Non-Compliance via Implementing Regulation (EU) 2019/1715</p>
                 </div>
                 <div class="program-card">
                     <h3>6. Food Dispute Resolution</h3>
+                    <p><em>Legal Appeals in Agrifood Inspection</em></p>
                     <p>Panel Selection Criteria for Product Counter-Assessments</p>
                 </div>
             </div>
         </div>
 
         <div class="sponsors">
-            <h2 style="text-align: center; margin-bottom: 20px;">Sponsors & Supporters</h2>
+            <h2 style="text-align: center; margin-bottom: 30px;">Sponsors & Supporters</h2>
             <div class="sponsors-grid">
-                <div class="sponsor-card">FAO</div>
-                <div class="sponsor-card">European Commission</div>
-                <div class="sponsor-card">DG AGRI</div>
-                <div class="sponsor-card">College of Europe</div>
-                <div class="sponsor-card">UPC Barcelona</div>
-                <div class="sponsor-card">UN HABITAT</div>
-                <div class="sponsor-card">UNIDO</div>
-                <div class="sponsor-card">WIPO</div>
-                <div class="sponsor-card">WCO</div>
-                <div class="sponsor-card">RPI</div>
+                <div class="sponsor-card"><h3>FAO</h3></div>
+                <div class="sponsor-card"><h3>European Commission</h3></div>
+                <div class="sponsor-card"><h3>DG AGRI</h3></div>
+                <div class="sponsor-card"><h3>College of Europe, Bruges</h3></div>
+                <div class="sponsor-card"><h3>Universitat Politècnica de Catalunya</h3></div>
+                <div class="sponsor-card"><h3>UN HABITAT</h3></div>
+                <div class="sponsor-card"><h3>UNIDO</h3></div>
+                <div class="sponsor-card"><h3>WIPO</h3></div>
+                <div class="sponsor-card"><h3>World Customs Organization</h3></div>
+                <div class="sponsor-card"><h3>Rensselaer Polytechnic Institute</h3></div>
             </div>
         </div>
 
-        <div class="form-section" id="registration-form">
-            <h2 style="text-align: center;">Secure Your Seat</h2>
-            <p style="margin-bottom: 25px; text-align: center; padding: 0 10px;">Fill out your details below to register instantly. No Google account login required.</p>
-            
-            <form id="conference-registration-form">
-                <div class="form-group">
-                    <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="organization">Organization / Institution *</label>
-                    <input type="text" id="organization" name="organization" placeholder="University or Company Name" required>
-                </div>
-
-                <button type="submit" id="submit-btn" class="btn" style="margin-top: 10px;">
-                    Submit Registration
-                </button>
-                
-                <div id="form-status"></div>
-            </form>
+        <div class="cta" id="register">
+            <h2>Join Us in Bruges</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 25px;">Be part of the next revolution in modern agriculture</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?usp=header" target="_blank" class="btn" style="background: white; color: #2E7D32;">Register Now</a>
         </div>
-
-        <div class="sticky-cta">
-            <a href="#registration-form" class="btn">Register For Event</a>
-        </div>
-        
     </div>
-
-    <script>
-        document.getElementById('conference-registration-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop the page from reloading
-            
-            const submitButton = document.getElementById('submit-btn');
-            const statusDiv = document.getElementById('form-status');
-            
-            // UI Status Update: Loading state
-            submitButton.disabled = true;
-            submitButton.innerText = "Processing Your Order...";
-            
-            statusDiv.style.display = "block";
-            statusDiv.style.background = "#FFF9C4"; // Warning yellow background
-            statusDiv.style.color = "#F57F17";
-            statusDiv.innerText = "Sending your registration data safely...";
-
-            const formData = new FormData(this);
-            
-            // PASTE YOUR GOOGLE APPS SCRIPT WEB APP DEPLOYMENT URL HERE
-            const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
-
-            // Check if user has replaced the placeholder URL
-            if (scriptURL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
-                statusDiv.style.background = "#FFCDD2"; // Red error banner
-                statusDiv.style.color = "#B71C1C";
-                statusDiv.innerText = "Configuration Error: Please update the scriptURL string inside your HTML code script tags.";
-                submitButton.disabled = false;
-                submitButton.innerText = "Submit Registration";
-                return;
-            }
-
-            // AJAX call to send form fields without triggering an account redirect
-            fetch(scriptURL, { method: 'POST', body: formData })
-                .then(response => {
-                    statusDiv.style.background = "#C8E6C9"; // Green success background
-                    statusDiv.style.color = "#1B5E20";
-                    statusDiv.innerText = "✓ Success! Your seat has been secured.";
-                    submitButton.innerText = "Successfully Registered";
-                    document.getElementById('conference-registration-form').reset();
-                })
-                .catch(error => {
-                    statusDiv.style.background = "#FFCDD2"; // Red error background
-                    statusDiv.style.color = "#B71C1C";
-                    statusDiv.innerText = "Network Error. Please verify your connection and try again.";
-                    submitButton.disabled = false;
-                    submitButton.innerText = "Submit Registration";
-                    console.error('Error!', error.message);
-                });
-        });
-    </script>
 </body>
 </html>
