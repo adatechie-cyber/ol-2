@@ -8,7 +8,6 @@
         :root {
             --olive-dark: #2C3E1B;
             --olive-primary: #556B2F;
-            --olive-light: #8FBC8F;
             --cream: #FAF9F5;
             --card-bg: #FFFFFF;
             --text-dark: #1F2E14;
@@ -21,15 +20,15 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--cream);
             color: var(--text-dark);
             padding: 12px;
-            max-width: 480px; /* Forces layout to perfectly mimic an iPhone/Android screen */
+            max-width: 480px; /* Enforces absolute smartphone boundaries */
             margin: 0 auto;
         }
 
-        /* SECTION 1: HEADER HERO */
+        /* SECTION 1: HEADER HERO ORDER */
         .hero-header {
             text-align: center;
             margin-bottom: 20px;
@@ -39,14 +38,14 @@
             font-size: 2.2rem;
             font-weight: 900;
             color: var(--olive-dark);
-            letter-spacing: -0.5px;
-            margin-bottom: 8px;
             text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
         .hero-video {
             width: 100%;
-            height: 190px;
+            height: 180px;
             object-fit: cover;
             border-radius: 12px;
             background-color: #000;
@@ -87,7 +86,7 @@
             transform: scale(0.97);
         }
 
-        /* SECTION 3: LIVE FIELD PRESENTATIONS (3 SIMULTANEOUS WINDOWS) */
+        /* SECTION 3: 3 VIDEO WINDOWS VISIBLE ON ONE SCREEN */
         .section-title {
             font-size: 1.15rem;
             font-weight: 800;
@@ -96,20 +95,21 @@
             margin: 25px 0 12px 0;
             border-left: 4px solid var(--olive-primary);
             padding-left: 8px;
-            letter-spacing: 0.3px;
         }
 
         .live-grid-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Guarantees 3 equal responsive windows on all screens */
+            display: flex;
+            justify-content: space-between;
             gap: 6px;
+            width: 100%;
         }
 
         .video-box-window {
             background-color: #000;
             border-radius: 6px;
             overflow: hidden;
-            aspect-ratio: 1 / 1; /* Squarish viewports ensures clean multi-camera layout */
+            flex: 1; /* Automatically forces all 3 elements to scale down together to fit inside the screen */
+            aspect-ratio: 1 / 1; 
             box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
 
@@ -120,7 +120,7 @@
             display: block;
         }
 
-        /* SECTION 5: FIVE REASONS TO ATTEND */
+        /* SECTION 4: FIVE REASONS TO ATTEND */
         .reasons-list {
             background: var(--card-bg);
             padding: 16px;
@@ -146,7 +146,7 @@
             margin-right: 8px;
         }
 
-        /* SECTION 6: CONFERENCE PROGRAM */
+        /* SECTION 5: PROGRAM */
         .program-container {
             display: flex;
             flex-direction: column;
@@ -164,7 +164,7 @@
         .program-id {
             font-size: 0.75rem;
             font-weight: 700;
-            color: var(--olive-light);
+            color: var(--olive-primary);
             text-transform: uppercase;
         }
 
@@ -181,7 +181,7 @@
             font-style: italic;
         }
 
-        /* SECTION 7: COMMITTEES AND PANELS */
+        /* SECTION 6: PANELS & COMMITTEES */
         .panel-box {
             background: var(--card-bg);
             padding: 14px;
@@ -224,7 +224,7 @@
             font-weight: bold;
         }
 
-        /* SECTION 8: SPONSORS SECTOR */
+        /* SECTION 7: SPONSORS */
         .sponsors-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -240,17 +240,15 @@
             font-size: 0.75rem;
             font-weight: 700;
             color: #888888;
-            border: 1px dashed var(--olive-light);
+            border: 1px dashed var(--olive-primary);
             text-transform: uppercase;
         }
 
         footer {
             text-align: center;
-            padding: 25px 10px;
+            padding: 20px 10px;
             font-size: 0.75rem;
             color: #888888;
-            border-top: 1px solid #E6E4DE;
-            margin-top: 30px;
         }
     </style>
 </head>
@@ -262,7 +260,7 @@
             <source src="vaj ulliri prodhim 3.mp4" type="video/mp4">
         </video>
         <div class="hero-meta">
-            📅 September, 26-29, 2026 &nbsp;|&nbsp; 📍 College of Europe, Bruges
+            📅 June 2026 &nbsp;|&nbsp; 📍 Durrës, Albania
         </div>
     </div>
 
@@ -286,7 +284,7 @@
         </div>
         <div class="video-box-window">
             <video autoplay muted loop playsinline>
-                <source src="vaj ulliri mulli.mp4" type="video/mp4">
+                <source src="vaj ulliri mulli (2).mp4" type="video/mp4">
             </video>
         </div>
     </div>
@@ -295,23 +293,23 @@
     <div class="reasons-list">
         <div class="reason-item">
             <span class="reason-icon">✓</span>
-            <div><strong>Digital Object Identifier (DOI):</strong> Every presentation a DOI.</div>
+            <div><strong>Digital Object Identifier (DOI):</strong> Provides a permanent link to digital content, ensuring research articles remain accessible even if URLs shift.</div>
         </div>
         <div class="reason-item">
             <span class="reason-icon">✓</span>
-            <div><strong>Academic Integrity:</strong> Conference proceedings with ISBN and ISSN .</div>
+            <div><strong>Academic Integrity:</strong> All official conference proceedings are published with direct ISBN and ISSN assignments.</div>
         </div>
         <div class="reason-item">
             <span class="reason-icon">✓</span>
-            <div><strong>High-Profile Indexing:</strong> Proceedings archived at FAO repository.</div>
+            <div><strong>High-Profile Indexing:</strong> Proceedings are indexed on Google Scholar and archived on the DG AGRI repository.</div>
         </div>
         <div class="reason-item">
             <span class="reason-icon">✓</span>
-            <div><strong>System Frameworks:</strong> Fully cross-compatible with ORCID and ROR Integrated .</div>
+            <div><strong>System Frameworks:</strong> Fully ORCID Compliant and ROR Integrated ecosystems.</div>
         </div>
         <div class="reason-item">
             <span class="reason-icon">✓</span>
-            <div><strong>Global Networking:</strong> Build critical international cross-border relationships with world leaders in agrifood policy.</div>
+            <div><strong>Global Networking:</strong> Build critical international cross-border connections.</div>
         </div>
     </div>
 
@@ -323,17 +321,17 @@
             <div class="program-subtopic">Harmonizing Conformity Checks Across Member States</div>
         </div>
         <div class="program-card">
-            <div class="program-id">02. Quality Control</div>
+            <div class="program-id">02. Quality Control &amp; Categorization</div>
             <div class="program-topic">Sensory Evaluation in Food Classification</div>
             <div class="program-subtopic">Differentiating Extra Virgin and Virgin Olive Oil</div>
         </div>
         <div class="program-card">
-            <div class="program-id">03. Product Deterioration</div>
+            <div class="program-id">03. Product Deterioration &amp; Logistics</div>
             <div class="program-topic">Post-Production Quality Degradation</div>
             <div class="program-subtopic">Impacts of Transport and Storage on Organoleptic Defects</div>
         </div>
         <div class="program-card">
-            <div class="program-id">04. International Standards</div>
+            <div class="program-id">04. International Trade Standards</div>
             <div class="program-topic">Global Food Chemistry Methodologies</div>
             <div class="program-subtopic">Integrating International Olive Council Analytical Updates</div>
         </div>
@@ -344,7 +342,7 @@
         </div>
     </div>
 
-    <div class="section-title">Committees &amp; Panels</div>
+    <div class="section-title">Conference Panels</div>
 
     <div class="panel-box">
         <div class="panel-title">Conference Advisory Panel</div>
@@ -379,19 +377,19 @@
 
     <div class="panel-box">
         <div class="panel-title">Conference Technical Panel</div>
-        <div class="panel-member"><strong>Zamzam Elmi</strong><span class="orcid-label">ORCID: 0009-0003-4664-7344</span><span>Lappeenranta-Lahti University of Technology</span></div>
-        <div class="panel-member"><strong>Maryam Paknahad</strong><span class="orcid-label">ORCID: 0009-0000-9428-6780</span><span>Lorestan University of Medical Sciences</span></div>
-        <div class="panel-member"><strong>Parvin Alizada Parvin</strong><span class="orcid-label">ORCID: 0009-0008-0526-4757</span><span>Azerbaijan University</span></div>
-        <div class="panel-member"><strong>Parvin Rajabi</strong><span class="orcid-label">ORCID: 0009-0006-3639-9318</span><span>University of Isfahan</span></div>
-        <div class="panel-member"><strong>Mohammad Saeed Tadayon</strong><span class="orcid-label">ORCID: 0000-0003-4026-7407</span><span>SWRI, Shiraz University</span></div>
-        <div class="panel-member"><strong>Seyed Mashaallah Hosseini</strong><span class="orcid-label">ORCID: 0000-0002-4394-973X</span><span>SWRI, Shiraz University</span></div>
-        <div class="panel-member"><strong>Sohrab Sadeghi</strong><span class="orcid-label">ORCID: 0000-0002-1022-891X</span><span>Fars agriculture research and education center</span></div>
-        <div class="panel-member"><strong>Tassneem Zamzam</strong><span class="orcid-label">ORCID: 0000-0002-7862-4820</span><span>Qatar Petrochemical Company Ltd</span></div>
-        <div class="panel-member"><strong>Andrea Olivé Olivé</strong><span class="orcid-label">ORCID: 0000-0002-6844-1190</span><span>Autonomous University of Barcelona</span></div>
-        <div class="panel-member"><strong>Olive Cocoman</strong><span class="orcid-label">ORCID: 0000-0002-8178-9524</span><span>World Health Organization</span></div>
+        <div class="panel-member"><strong>Zamzam Elmi</strong><span class="orcid-label">0009-0003-4664-7344</span><span>Lappeenranta-Lahti University of Technology</span></div>
+        <div class="panel-member"><strong>Maryam Paknahad</strong><span class="orcid-label">0009-0000-9428-6780</span><span>Lorestan University of Medical Sciences</span></div>
+        <div class="panel-member"><strong>Parvin Alizada Parvin</strong><span class="orcid-label">0009-0008-0526-4757</span><span>Azerbaijan University</span></div>
+        <div class="panel-member"><strong>Parvin Rajabi</strong><span class="orcid-label">0009-0006-3639-9318</span><span>University of Isfahan</span></div>
+        <div class="panel-member"><strong>Mohammad Saeed Tadayon</strong><span class="orcid-label">0000-0003-4026-7407</span><span>Shiraz University, Soil and Water Research Institute (SWRI)</span></div>
+        <div class="panel-member"><strong>Seyed Mashaallah Hosseini</strong><span class="orcid-label">0000-0002-4394-973X</span><span>Shiraz University, Soil and Water Research Institute (SWRI)</span></div>
+        <div class="panel-member"><strong>Sohrab Sadeghi</strong><span class="orcid-label">0000-0002-1022-891X</span><span>Fars agriculture research and education center</span></div>
+        <div class="panel-member"><strong>Tassneem Zamzam</strong><span class="orcid-label">0000-0002-7862-4820</span><span>Qatar Petrochemical Company Ltd</span></div>
+        <div class="panel-member"><strong>Andrea Olivé Olivé</strong><span class="orcid-label">0000-0002-6844-1190</span><span>Autonomous University of Barcelona</span></div>
+        <div class="panel-member"><strong>Olive Cocoman</strong><span class="orcid-label">0000-0002-8178-9524</span><span>World Health Organization</span></div>
     </div>
 
-    <div class="section-title">Sponsors &amp; Institutional Partners</div>
+    <div class="section-title">Sponsors</div>
     <div class="sponsors-row">
         <div class="sponsor-logo-placeholder">DG AGRI</div>
         <div class="sponsor-logo-placeholder">IOC Organic</div>
@@ -399,11 +397,10 @@
     </div>
 
     <footer>
-        Olives 2026 • FAO Repository. EU Conference
+        Olives 2026 Mobile Ecosystem
     </footer>
 
     <script>
-        // Forces initialization safety on all mobile browser engines
         window.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('video').forEach(video => {
                 video.play().catch(() => {});
