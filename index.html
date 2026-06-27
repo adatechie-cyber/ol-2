@@ -2,309 +2,310 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olives 2026 - International Conference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Olives 2026 Conference</title>
     <style>
         :root {
-            --primary-olive: #556B2F;
-            --light-olive: #8FBC8F;
-            --dark-stone: #2F4F4F;
-            --cream: #FAF9F6;
-            --accent: #D2B48C;
+            --olive-primary: #4A5D2E;
+            --olive-light: #7D905C;
+            --olive-dark: #2C3819;
+            --soft-cream: #FAF8F2;
+            --text-dark: #2B2D24;
+            --white: #FFFFFF;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: var(--cream);
-            color: var(--dark-stone);
-            line-height: 1.6;
-            padding-bottom: 40px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--soft-cream);
+            color: var(--text-dark);
+            line-height: 1.5;
         }
 
-        /* Hero Video Section - Autoplays immediately on sight */
-        .hero-video-container {
-            position: relative;
-            width: 100%;
-            height: 56.25vw; /* 16:9 ratio */
-            max-height: 320px;
-            background-color: #000;
-            overflow: hidden;
-        }
-
-        .hero-video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 15px;
-            color: white;
-        }
-
-        .hero-overlay h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Main Content wrapper optimized for Thumb-scrolling */
-        .content {
-            padding: 20px;
-        }
-
-        .tagline {
-            font-style: italic;
-            color: var(--primary-olive);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        /* Conversion / Registration Block */
-        .registration-box {
-            background-color: white;
-            border-radius: 12px;
-            padding: 20px;
+        /* --- HEADER HERO SECTION --- */
+        .hero-section {
+            background-color: var(--olive-dark);
+            color: var(--white);
+            padding: 24px 16px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(85, 107, 47, 0.1);
-            margin-bottom: 25px;
-            border: 1px solid rgba(85, 107, 47, 0.1);
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .hero-section h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            color: #D1DCBD;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .main-hero-video {
+            width: 100%;
+            border-radius: 14px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            background-color: #000;
+            margin-bottom: 16px;
+        }
+
+        .meta-info-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .meta-info-box div {
+            margin: 4px 0;
+            font-weight: 600;
+        }
+
+        /* --- REGISTRATION SECTION --- */
+        .section-register {
+            padding: 24px 16px;
+            text-align: center;
         }
 
         .btn-register {
-            display: block;
+            display: inline-block;
             width: 100%;
-            background-color: var(--primary-olive);
-            color: white;
+            max-width: 340px;
+            background: linear-gradient(135deg, var(--olive-primary), var(--olive-light));
+            color: var(--white);
             text-decoration: none;
-            padding: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            transition: transform 0.2s;
+            padding: 16px 32px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(74, 93, 46, 0.4);
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: transform 0.1s ease;
         }
 
         .btn-register:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
         }
 
-        /* Seamless Bypass Link & Instructions for No-Gmail Barriers */
-        .bypass-container {
-            margin-top: 12px;
-            padding: 10px;
-            background-color: #f9f6f0;
-            border-radius: 6px;
-            border-left: 3px solid var(--accent);
-        }
-
-        .bypass-text {
-            font-size: 0.82rem;
-            color: #666;
-            margin-bottom: 4px;
-        }
-
-        .bypass-link {
-            font-size: 0.85rem;
-            color: var(--primary-olive);
-            font-weight: 600;
-            word-break: break-all;
-            text-decoration: underline;
-        }
-
-        /* Sections Styling */
-        h2 {
-            font-size: 1.25rem;
-            color: var(--primary-olive);
-            margin: 25px 0 12px 0;
-            border-bottom: 2px solid var(--light-olive);
-            padding-bottom: 4px;
-        }
-
-        ul {
-            list-style-position: inside;
-            padding-left: 5px;
-        }
-
-        li {
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        /* Program Cards */
-        .program-card {
-            background: white;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            border-left: 4px solid var(--primary-olive);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .program-number {
-            font-weight: bold;
-            color: var(--primary-olive);
-            font-size: 0.85rem;
-        }
-
-        .program-topic {
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin: 2px 0;
-        }
-
-        .program-subtopic {
-            font-size: 0.85rem;
-            color: #555;
-        }
-
-        /* Embedded Supporting Videos Grid */
-        .video-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .grid-video-item {
-            background: #000;
-            border-radius: 8px;
+        /* Direct Embedded Form Container to bypass Google Account login screens */
+        .form-embed-container {
+            margin-top: 16px;
+            width: 100%;
+            height: 480px;
+            border-radius: 16px;
             overflow: hidden;
-            height: 50vw;
-            max-height: 240px;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.08);
+            background: var(--white);
         }
 
-        .grid-video-item video {
+        .form-embed-container iframe {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            border: none;
         }
 
-        .footer-info {
+        /* --- HORIZONTAL LIVE PRESENTATIONS --- */
+        .live-section-title {
+            padding: 0 16px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--olive-dark);
+            margin-top: 24px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .horizontal-video-track {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 4px 16px 16px 16px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .horizontal-video-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .video-window-card {
+            flex: 0 0 75%;
+            scroll-snap-align: start;
+            background: var(--white);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .video-window-card video {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+            background-color: #000;
+        }
+
+        .video-caption {
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--olive-primary);
             text-align: center;
+            background: var(--white);
+        }
+
+        /* --- COMMITTEES & PANELS SECTION --- */
+        .panels-section {
+            padding: 16px;
+        }
+
+        .panel-group-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            background: var(--olive-primary);
+            padding: 8px 14px;
+            border-radius: 8px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .panel-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .panel-member-card {
+            background: var(--white);
+            padding: 12px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--olive-light);
+        }
+
+        .member-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .member-inst {
+            font-size: 0.8rem;
+            color: #606456;
+            margin-top: 2px;
+        }
+
+        .member-orcid {
             font-size: 0.75rem;
-            color: #888;
-            margin-top: 30px;
-            padding: 15px;
+            color: var(--olive-light);
+            font-family: monospace;
+            margin-top: 1px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 16px;
+            font-size: 0.75rem;
+            color: #8A8E80;
+            background-color: #EFECE3;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
-    <div class="hero-video-container">
-        <video autoplay muted loop playsinline id="heroVideo">
-            <source src="vaj ulliri prodhim 3.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="hero-overlay">
-            <h1>Olives 2026</h1>
-        </div>
-    </div>
-
-    <div class="content">
-        <p class="tagline">The premier agricultural policy, food science, and trade law summit.</p>
-
-        <div class="registration-box">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?usp=header" class="btn-register" target="_blank">
-                Register Instantly
-            </a>
-            
-            <div class="bypass-container">
-                <p class="bypass-text">⚠️ <strong>No Google/Gmail Account?</strong> To bypass login screens, tap or copy the direct form pipeline link organically below:</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?usp=header" class="bypass-link" target="_blank">
-                    https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?usp=header
-                </a>
-            </div>
-        </div>
-
-        <h2>5 Reasons to Attend</h2>
-        <ul>
-            <li><strong>Digital Object Identifier (DOI):</strong> Permanent links ensuring research remains accessible if URLs shift.</li>
-            <li><strong>Official Credentials:</strong> Proceedings published directly with registered ISBN and ISSN.</li>
-            <li><strong>Global Archival:</strong> Indexed on Google Scholar and officially archived on the DG AGRI repository.</li>
-            <li><strong>Tech-Integrated:</strong> Fully ORCID Compliant and ROR Integrated ecosystems.</li>
-            <li><strong>Networking:</strong> Create powerful new international cross-border connections.</li>
-        </ul>
-
-        <h2>Live Field Presentations</h2>
-        <div class="video-grid">
-            <div class="grid-video-item">
-                <video autoplay muted loop playsinline>
-                    <source src="shartimi i ullirit.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="grid-video-item">
-                <video autoplay muted loop playsinline>
-                    <source src="vaj ulliri mulli (2).mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-
-        <h2>Conference Program Highlights</h2>
+    <header class="hero-section">
+        <h1>Olives 2026</h1>
+        <p class="hero-subtitle">International Agrifood & Trade Policy Summit</p>
         
-        <div class="program-card">
-            <div class="program-number">Session 1</div>
-            <div class="program-topic">EU Marketing Standards for Agricultural Goods</div>
-            <div class="program-subtopic">Harmonizing Conformity Checks Across Member States</div>
+        <video class="main-hero-video" autoplay muted loop playsinline>
+            <source src="vaj ulliri prodhim 3.mp4" type="video/mp4">
+        </video>
+
+        <div class="meta-info-box">
+            <div>📅 June 2026</div>
+            <div>📍 Durrës, Albania</div>
+        </div>
+    </header>
+
+    <section class="section-register">
+        <a href="#form-anchor" class="btn-register">Register Now</a>
+        
+        <div class="form-embed-container" id="form-anchor">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?embedded=true">Loading Registration Form...</iframe>
+        </div>
+    </section>
+
+    <h2 class="live-section-title">Live Field Presentations</h2>
+    <div class="horizontal-video-track">
+        
+        <div class="video-window-card">
+            <video autoplay muted loop playsinline>
+                <source src="vaj ulliri prodhim 3.mp4" type="video/mp4">
+            </video>
+            <div class="video-caption">Production Processing Feed</div>
         </div>
 
-        <div class="program-card">
-            <div class="program-number">Session 2</div>
-            <div class="program-topic">Sensory Evaluation in Food Classification</div>
-            <div class="program-subtopic">Differentiating Extra Virgin and Virgin Olive Oil</div>
+        <div class="video-window-card">
+            <video autoplay muted loop playsinline>
+                <source src="shartimi i ullirit.mp4" type="video/mp4">
+            </video>
+            <div class="video-caption">Olive Cultivation &amp; Grafting</div>
         </div>
 
-        <div class="program-card">
-            <div class="program-number">Session 3</div>
-            <div class="program-topic">Post-Production Quality Degradation</div>
-            <div class="program-subtopic">Impacts of Transport and Storage on Organoleptic Defects</div>
+        <div class="video-window-card">
+            <video autoplay muted loop playsinline>
+                <source src="vaj ulliri mulli (2).mp4" type="video/mp4">
+            </video>
+            <div class="video-caption">Traditional Mill Stream</div>
         </div>
 
-        <div class="program-card">
-            <div class="program-number">Session 4</div>
-            <div class="program-topic">Global Food Chemistry Methodologies</div>
-            <div class="program-subtopic">Integrating International Olive Council Analytical Updates</div>
-        </div>
-
-        <div class="program-card">
-            <div class="program-number">Session 5</div>
-            <div class="program-topic">European Union Anti-Fraud Systems</div>
-            <div class="program-subtopic">Notifying Non-Compliance via Implementing Regulation (EU) 2019/1715</div>
-        </div>
-
-        <h2>Conference Panels</h2>
-        <div class="program-card" style="border-left-color: var(--light-olive);">
-            <div class="program-topic" style="font-size:0.9rem;">Advisory Panel Leaders</div>
-            <div class="program-subtopic" style="font-size:0.8rem;">Manfred W. Wiebelt (Kiel Institute), Olive Lenk (LMU München), Maria Rocca (LMU München).</div>
-        </div>
     </div>
 
-    <div class="footer-info">
-        Olives 2026 • Designed Exclusively for Mobile Devices
-    </div>
+    <section class="panels-section">
+        
+        <div class="panel-group-title">Conference Advisory Panel</div>
+        <div class="panel-list">
+            <div class="panel-member-card"><div class="member-name">Manfred W. Wiebelt</div><div class="member-inst">Kiel Institute for the World Economy</div></div>
+            <div class="panel-member-card"><div class="member-name">Harmen Lehment</div><div class="member-inst">Kiel Institute for the World Economy</div></div>
+            <div class="panel-member-card"><div class="member-name">Olive Lenk</div><div class="member-inst">Ludwig-Maximilians-Universität München</div></div>
+            <div class="panel-member-card"><div class="member-name">Maria Rocca</div><div class="member-inst">Ludwig-Maximilians-Universität München</div></div>
+            <div class="panel-member-card"><div class="member-name">Juliane Mohr</div><div class="member-inst">Friedrich Schiller University Jena</div></div>
+            <div class="panel-member-card"><div class="member-name">ORHAN EREN</div><div class="member-inst">Bursa Technical University</div></div>
+            <div class="panel-member-card"><div class="member-name">Nurdan Akbaş</div><div class="member-inst">Dokuz Eylül University</div></div>
+            <div class="panel-member-card"><div class="member-name">AYSUN SEHİRLİ</div><div class="member-inst">University of Saskatchewan</div></div>
+            <div class="panel-member-card"><div class="member-name">Aysun Ələsgərova Aysun</div><div class="member-inst">Nakhchivan State University</div></div>
+            <div class="panel-member-card"><div class="member-name">Ols Tengera</div><div class="member-inst">University of Rwanda</div></div>
+            <div class="panel-member-card"><div class="member-name">Oliver Khaliq</div><div class="member-inst">University of KwaZulu-Natal</div></div>
+        </div>
 
-    <script>
-        // Force try triggering autoplay fallback dynamically if user interaction parameters activate
-        document.addEventListener('DOMContentLoaded', function() {
-            var vids = document.querySelectorAll('video');
-            vids.forEach(function(video) {
-                video.play().catch(function(err) {
-                    console.log("Autoplay context initialization flagged safely:", err);
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+        <div class="panel-group-title">Conference Reviewer Committee</div>
+        <div class="panel-list">
+            <div class="panel-member-card"><div class="member-name">Ibette And</div><div class="member-inst">Cornell University</div></div>
+            <div class="panel-member-card"><div class="member-name">Oya Köseoğlu</div><div class="member-inst">Martin Luther Universität Halle-Wittenberg</div></div>
+            <div class="panel-member-card"><div class="member-name">ADNAN DAGDELE</div><div class="member-inst">Western Norway University of Applied Sciences</div></div>
+            <div class="panel-member-card"><div class="member-name">Nand Aytaç Gümüşkesen</div><div class="member-inst">Hajee Mohammad Danesh Science and Technology University</div></div>
+            <div class="panel-member-card"><div class="member-name">Le Yu</div><div class="member-inst">Chinese University of
