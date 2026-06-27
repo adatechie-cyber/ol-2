@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olive Conference 2026</title>
     <style>
-        /* Mobile-Only Wrapper Rules */
+        /* ==========================================
+           1. MOBILE-ONLY VIEWPORT ENFORCEMENT
+           ========================================== */
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
             margin: 0; 
@@ -15,7 +17,7 @@
             justify-content: center;
         }
         
-        /* Enforces an elegant smartphone viewport on desktop and perfect fit on mobile */
+        /* Forces an elegant smartphone aspect ratio on desktop, adapts cleanly to actual phones */
         .container { 
             max-width: 480px; 
             width: 100%;
@@ -24,8 +26,12 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            padding-bottom: 80px; /* Space so content isn't blocked by the sticky button */
         }
         
+        /* ==========================================
+           2. TYPOGRAPHY & SECTIONS
+           ========================================== */
         h1, h2, h3 { color: #2E7D32; margin-top: 0; }
         p { line-height: 1.5; color: #37474F; font-size: 0.95rem; }
         
@@ -76,28 +82,59 @@
         .sponsors-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .sponsor-card { background: white; padding: 12px; border-radius: 8px; text-align: center; font-size: 0.85rem; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
-        /* Integrated Form Presentation Frame */
+        /* ==========================================
+           3. NATIVE INTEGRATED REGISTRATION FORM
+           ========================================== */
         .form-section {
-            padding: 30px 0;
+            padding: 40px 20px;
             background: #fafafa;
-            text-align: center;
             border-top: 2px dashed #E0E0E0;
         }
-        .form-frame-wrapper {
-            width: 100%;
-            overflow: hidden;
-            -webkit-overflow-scrolling: touch;
+        
+        .form-group {
+            margin-bottom: 18px;
         }
-        iframe {
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #37474F;
+            font-size: 0.9rem;
+        }
+        
+        .form-group input {
             width: 100%;
-            height: 750px;
-            border: none;
+            padding: 12px;
+            border: 1px solid #CFD8DC;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #2E7D32;
         }
 
-        /* Sticky Bottom Navigation Call to Action */
+        #form-status {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            display: none;
+        }
+
+        /* ==========================================
+           4. BUTTONS & STICKY FOOTER
+           ========================================== */
         .sticky-cta {
-            position: sticky;
+            position: fixed;
             bottom: 0;
+            max-width: 440px; /* Aligns smoothly within the 480px parent container */
+            width: 100%;
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(8px);
             padding: 12px 20px;
@@ -105,6 +142,7 @@
             text-align: center;
             border-top: 1px solid #E0E0E0;
             z-index: 999;
+            box-sizing: border-box;
         }
 
         .btn { 
@@ -116,11 +154,15 @@
             display: inline-block; 
             font-weight: bold; 
             box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
-            transition: transform 0.1s ease-in-out;
-            width: 90%;
+            transition: transform 0.1s ease-in-out, background-color 0.2s;
+            width: 100%;
             font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            text-align: center;
         }
-        .btn:active { transform: scale(0.97); }
+        .btn:active { transform: scale(0.98); }
+        .btn:disabled { background: #9E9E9E; box-shadow: none; cursor: not-allowed; }
     </style>
 </head>
 <body>
@@ -137,7 +179,7 @@
                 Image Carousel Here
             </div>
             
-            <a href="#registration-form" class="btn" style="width: 80%; font-size: 0.9rem; padding: 10px 0;">Jump to Registration</a>
+            <a href="#registration-form" class="btn" style="width: 80%; font-size: 0.9rem; padding: 10px 0; background: #558B2F;">Jump to Registration</a>
         </div>
 
         <div class="video-section">
@@ -206,14 +248,31 @@
         </div>
 
         <div class="form-section" id="registration-form">
-            <h2>Secure Your Seat</h2>
-            <p style="margin-bottom: 20px; padding: 0 20px;">Fill out the official form below to register instantly. No login required.</p>
+            <h2 style="text-align: center;">Secure Your Seat</h2>
+            <p style="margin-bottom: 25px; text-align: center; padding: 0 10px;">Fill out your details below to register instantly. No Google account login required.</p>
             
-            <div class="form-frame-wrapper">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?embedded=true">
-                    Loading…
-                </iframe>
-            </div>
+            <form id="conference-registration-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="organization">Organization / Institution *</label>
+                    <input type="text" id="organization" name="organization" placeholder="University or Company Name" required>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn" style="margin-top: 10px;">
+                    Submit Registration
+                </button>
+                
+                <div id="form-status"></div>
+            </form>
         </div>
 
         <div class="sticky-cta">
@@ -222,5 +281,55 @@
         
     </div>
 
+    <script>
+        document.getElementById('conference-registration-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop the page from reloading
+            
+            const submitButton = document.getElementById('submit-btn');
+            const statusDiv = document.getElementById('form-status');
+            
+            // UI Status Update: Loading state
+            submitButton.disabled = true;
+            submitButton.innerText = "Processing Your Order...";
+            
+            statusDiv.style.display = "block";
+            statusDiv.style.background = "#FFF9C4"; // Warning yellow background
+            statusDiv.style.color = "#F57F17";
+            statusDiv.innerText = "Sending your registration data safely...";
+
+            const formData = new FormData(this);
+            
+            // PASTE YOUR GOOGLE APPS SCRIPT WEB APP DEPLOYMENT URL HERE
+            const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+
+            // Check if user has replaced the placeholder URL
+            if (scriptURL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
+                statusDiv.style.background = "#FFCDD2"; // Red error banner
+                statusDiv.style.color = "#B71C1C";
+                statusDiv.innerText = "Configuration Error: Please update the scriptURL string inside your HTML code script tags.";
+                submitButton.disabled = false;
+                submitButton.innerText = "Submit Registration";
+                return;
+            }
+
+            // AJAX call to send form fields without triggering an account redirect
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    statusDiv.style.background = "#C8E6C9"; // Green success background
+                    statusDiv.style.color = "#1B5E20";
+                    statusDiv.innerText = "✓ Success! Your seat has been secured.";
+                    submitButton.innerText = "Successfully Registered";
+                    document.getElementById('conference-registration-form').reset();
+                })
+                .catch(error => {
+                    statusDiv.style.background = "#FFCDD2"; // Red error background
+                    statusDiv.style.color = "#B71C1C";
+                    statusDiv.innerText = "Network Error. Please verify your connection and try again.";
+                    submitButton.disabled = false;
+                    submitButton.innerText = "Submit Registration";
+                    console.error('Error!', error.message);
+                });
+        });
+    </script>
 </body>
 </html>
