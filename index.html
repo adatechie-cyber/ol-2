@@ -3,226 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olive Conference 2026</title>
+    <title>Olives 2026 - International Conference</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f9f9f9;
+        :root {
+            --primary-olive: #556B2F;
+            --light-olive: #8FBC8F;
+            --dark-stone: #2F4F4F;
+            --cream: #FAF9F6;
+            --accent: #D2B48C;
         }
-        
-        /* Centered container that scales beautifully on mobile-first formats */
-        .container { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 15px; 
-            background: #ffffff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        
-        h1 { color: #2E7D32; font-size: 1.8rem; margin-top: 0; }
-        h2 { color: #2E7D32; font-size: 1.5rem; }
-        
-        /* Responsive Hero layout optimized for mobile views */
-        .hero { 
-            display: flex; 
-            flex-direction: column-reverse; 
-            gap: 20px; 
-            padding: 40px 20px; 
-            background: #F1F8E9; 
+
+        body {
+            background-color: var(--cream);
+            color: var(--dark-stone);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        /* Hero Video Section - Autoplays immediately on sight */
+        .hero-video-container {
+            position: relative;
+            width: 100%;
+            height: 56.25vw; /* 16:9 ratio */
+            max-height: 320px;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .hero-video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 15px;
+            color: white;
+        }
+
+        .hero-overlay h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content wrapper optimized for Thumb-scrolling */
+        .content {
+            padding: 20px;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: var(--primary-olive);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* Conversion / Registration Block */
+        .registration-box {
+            background-color: white;
             border-radius: 12px;
+            padding: 20px;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(85, 107, 47, 0.1);
+            margin-bottom: 25px;
+            border: 1px solid rgba(85, 107, 47, 0.1);
         }
-        
-        .hero-text {
-            text-align: left;
+
+        .btn-register {
+            display: block;
+            width: 100%;
+            background-color: var(--primary-olive);
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
         }
-        
-        @media(max-width: 600px) {
-            .hero-text { text-align: center; }
-        }
-        
-        .video-section { padding: 40px 10px; text-align: center; }
-        
-        .description { 
-            padding: 40px 20px; 
-            background: #2E7D32; 
-            color: white; 
-            text-align: center; 
-            border-radius: 12px;
-        }
-        
-        .program { padding: 40px 10px; }
-        
-        /* Mobile-friendly single column or compact grid layout */
-        .program-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 20px; 
-        }
-        
-        @media (min-width: 600px) {
-            .program-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        
-        .program-card { 
-            background: #F1F8E9; 
-            padding: 20px; 
-            border-radius: 10px; 
-            border-left: 4px solid #2E7D32; 
-        }
-        
-        .sponsors { padding: 40px 10px; }
-        
-        /* Flexible grid wrapping safely on standard mobile viewports */
-        .sponsors-grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 15px; 
-        }
-        
-        @media (min-width: 600px) {
-            .sponsors-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-        
-        .sponsor-card { 
-            background: #F1F8E9; 
-            padding: 15px 10px; 
-            border-radius: 10px; 
-            text-align: center; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .sponsor-card h3 { 
-            margin: 0; 
-            font-size: 1rem; 
-            color: #37474F;
-        }
-        
-        .cta { 
-            padding: 60px 20px; 
-            background: linear-gradient(135deg, #2E7D32, #1B5E20); 
-            color: white; 
-            text-align: center; 
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-        
-        /* Aesthetically styled interactive buttons hiding your link setup */
-        .btn { 
-            background: #2E7D32; 
-            color: white; 
-            padding: 15px 30px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            display: inline-block; 
-            font-weight: bold; 
-            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .btn:active {
+
+        .btn-register:active {
             transform: scale(0.98);
+        }
+
+        /* Seamless Bypass Link & Instructions for No-Gmail Barriers */
+        .bypass-container {
+            margin-top: 12px;
+            padding: 10px;
+            background-color: #f9f6f0;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .bypass-text {
+            font-size: 0.82rem;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .bypass-link {
+            font-size: 0.85rem;
+            color: var(--primary-olive);
+            font-weight: 600;
+            word-break: break-all;
+            text-decoration: underline;
+        }
+
+        /* Sections Styling */
+        h2 {
+            font-size: 1.25rem;
+            color: var(--primary-olive);
+            margin: 25px 0 12px 0;
+            border-bottom: 2px solid var(--light-olive);
+            padding-bottom: 4px;
+        }
+
+        ul {
+            list-style-position: inside;
+            padding-left: 5px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Program Cards */
+        .program-card {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--primary-olive);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .program-number {
+            font-weight: bold;
+            color: var(--primary-olive);
+            font-size: 0.85rem;
+        }
+
+        .program-topic {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin: 2px 0;
+        }
+
+        .program-subtopic {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        /* Embedded Supporting Videos Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .grid-video-item {
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 50vw;
+            max-height: 240px;
+        }
+
+        .grid-video-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-info {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 30px;
+            padding: 15px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <div class="hero-text">
-                <h1>International Conference on Olive Oil & Table Olives</h1>
-                <p><strong>📅 When:</strong> September 26-30, 2026</p>
-                <p><strong>📍 Where:</strong> College of Europe, Bruges, Belgium</p>
-                <p><strong>👥 Who:</strong> Researchers, Academia, Tech Leaders & Agriculture Agencies</p>
-                <br>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?usp=header" target="_blank" class="btn">Register Now</a>
-            </div>
-            <div style="background: linear-gradient(135deg, #667eea, #764ba2); height: 250px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; text-align: center; padding: 10px;">
-                Image Carousel Here
-            </div>
-        </div>
 
-        <div class="video-section">
-            <h2>Why Attend?</h2>
-            <div style="background: #000; height: 250px; border-radius: 20px; margin: 20px 0; display: flex; align-items: center; justify-content: center; color: white;">
-                🎥 Conference Video (15 seconds)
-            </div>
-            <ul style="text-align: left; max-width: 500px; margin: 0 auto; line-height: 1.6; color: #37474F;">
-                <li>🔗 DOI - Permanent digital access</li>
-                <li>📚 ISBN & ISSN published proceedings</li>
-                <li>🔍 Google Scholar indexed & DG AGRI archived</li>
-                <li>✅ ORCID Compliant & ROR Integrated</li>
-                <li>🤝 Make New Connections!</li>
-            </ul>
-        </div>
-
-        <div class="description">
-            <h2>About the Conference</h2>
-            <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto; line-height: 1.6;">
-                Global summit on olive oil quality, regulatory standards, and agricultural innovation for researchers, industry leaders, and policymakers.
-            </p>
-        </div>
-
-        <div class="program">
-            <h2 style="text-align: center; margin-bottom: 30px;">Conference Program</h2>
-            <div class="program-grid">
-                <div class="program-card">
-                    <h3>1. Regulatory Harmonization</h3>
-                    <p><em>EU Marketing Standards for Agricultural Goods</em></p>
-                    <p>Harmonizing Conformity Checks Across Member States</p>
-                </div>
-                <div class="program-card">
-                    <h3>2. Quality Control & Categorization</h3>
-                    <p><em>Sensory Evaluation in Food Classification</em></p>
-                    <p>Differentiating Extra Virgin and Virgin Olive Oil</p>
-                </div>
-                <div class="program-card">
-                    <h3>3. Product Deterioration & Logistics</h3>
-                    <p><em>Post-Production Quality Degradation</em></p>
-                    <p>Impacts of Transport and Storage on Organoleptic Defects</p>
-                </div>
-                <div class="program-card">
-                    <h3>4. International Trade Standards</h3>
-                    <p><em>Global Food Chemistry Methodologies</em></p>
-                    <p>Integrating International Olive Council Analytical Updates</p>
-                </div>
-                <div class="program-card">
-                    <h3>5. Administrative Enforcement</h3>
-                    <p><em>European Union Anti-Fraud Systems</em></p>
-                    <p>Notifying Non-Compliance via Implementing Regulation (EU) 2019/1715</p>
-                </div>
-                <div class="program-card">
-                    <h3>6. Food Dispute Resolution</h3>
-                    <p><em>Legal Appeals in Agrifood Inspection</em></p>
-                    <p>Panel Selection Criteria for Product Counter-Assessments</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="sponsors">
-            <h2 style="text-align: center; margin-bottom: 30px;">Sponsors & Supporters</h2>
-            <div class="sponsors-grid">
-                <div class="sponsor-card"><h3>FAO</h3></div>
-                <div class="sponsor-card"><h3>European Commission</h3></div>
-                <div class="sponsor-card"><h3>DG AGRI</h3></div>
-                <div class="sponsor-card"><h3>College of Europe, Bruges</h3></div>
-                <div class="sponsor-card"><h3>Universitat Politècnica de Catalunya</h3></div>
-                <div class="sponsor-card"><h3>UN HABITAT</h3></div>
-                <div class="sponsor-card"><h3>UNIDO</h3></div>
-                <div class="sponsor-card"><h3>WIPO</h3></div>
-                <div class="sponsor-card"><h3>World Customs Organization</h3></div>
-                <div class="sponsor-card"><h3>Rensselaer Polytechnic Institute</h3></div>
-            </div>
-        </div>
-
-        <div class="cta" id="register">
-            <h2>Join Us in Bruges</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 25px;">Be part of the next revolution in modern agriculture</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?usp=header" target="_blank" class="btn" style="background: white; color: #2E7D32;">Register Now</a>
+    <div class="hero-video-container">
+        <video autoplay muted loop playsinline id="heroVideo">
+            <source src="vaj ulliri prodhim 3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay">
+            <h1>Olives 2026</h1>
         </div>
     </div>
+
+    <div class="content">
+        <p class="tagline">The premier agricultural policy, food science, and trade law summit.</p>
+
+        <div class="registration-box">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?usp=header" class="btn-register" target="_blank">
+                Register Instantly
+            </a>
+            
+            <div class="bypass-container">
+                <p class="bypass-text">⚠️ <strong>No Google/Gmail Account?</strong> To bypass login screens, tap or copy the direct form pipeline link organically below:</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?usp=header" class="bypass-link" target="_blank">
+                    https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?usp=header
+                </a>
+            </div>
+        </div>
+
+        <h2>5 Reasons to Attend</h2>
+        <ul>
+            <li><strong>Digital Object Identifier (DOI):</strong> Permanent links ensuring research remains accessible if URLs shift.</li>
+            <li><strong>Official Credentials:</strong> Proceedings published directly with registered ISBN and ISSN.</li>
+            <li><strong>Global Archival:</strong> Indexed on Google Scholar and officially archived on the DG AGRI repository.</li>
+            <li><strong>Tech-Integrated:</strong> Fully ORCID Compliant and ROR Integrated ecosystems.</li>
+            <li><strong>Networking:</strong> Create powerful new international cross-border connections.</li>
+        </ul>
+
+        <h2>Live Field Presentations</h2>
+        <div class="video-grid">
+            <div class="grid-video-item">
+                <video autoplay muted loop playsinline>
+                    <source src="shartimi i ullirit.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="grid-video-item">
+                <video autoplay muted loop playsinline>
+                    <source src="vaj ulliri mulli (2).mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <h2>Conference Program Highlights</h2>
+        
+        <div class="program-card">
+            <div class="program-number">Session 1</div>
+            <div class="program-topic">EU Marketing Standards for Agricultural Goods</div>
+            <div class="program-subtopic">Harmonizing Conformity Checks Across Member States</div>
+        </div>
+
+        <div class="program-card">
+            <div class="program-number">Session 2</div>
+            <div class="program-topic">Sensory Evaluation in Food Classification</div>
+            <div class="program-subtopic">Differentiating Extra Virgin and Virgin Olive Oil</div>
+        </div>
+
+        <div class="program-card">
+            <div class="program-number">Session 3</div>
+            <div class="program-topic">Post-Production Quality Degradation</div>
+            <div class="program-subtopic">Impacts of Transport and Storage on Organoleptic Defects</div>
+        </div>
+
+        <div class="program-card">
+            <div class="program-number">Session 4</div>
+            <div class="program-topic">Global Food Chemistry Methodologies</div>
+            <div class="program-subtopic">Integrating International Olive Council Analytical Updates</div>
+        </div>
+
+        <div class="program-card">
+            <div class="program-number">Session 5</div>
+            <div class="program-topic">European Union Anti-Fraud Systems</div>
+            <div class="program-subtopic">Notifying Non-Compliance via Implementing Regulation (EU) 2019/1715</div>
+        </div>
+
+        <h2>Conference Panels</h2>
+        <div class="program-card" style="border-left-color: var(--light-olive);">
+            <div class="program-topic" style="font-size:0.9rem;">Advisory Panel Leaders</div>
+            <div class="program-subtopic" style="font-size:0.8rem;">Manfred W. Wiebelt (Kiel Institute), Olive Lenk (LMU München), Maria Rocca (LMU München).</div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        Olives 2026 • Designed Exclusively for Mobile Devices
+    </div>
+
+    <script>
+        // Force try triggering autoplay fallback dynamically if user interaction parameters activate
+        document.addEventListener('DOMContentLoaded', function() {
+            var vids = document.querySelectorAll('video');
+            vids.forEach(function(video) {
+                video.play().catch(function(err) {
+                    console.log("Autoplay context initialization flagged safely:", err);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
