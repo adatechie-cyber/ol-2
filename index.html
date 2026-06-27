@@ -61,7 +61,7 @@
 
         /* SECTION 2: BEAUTIFUL REGISTER BUTTON ONLY */
         .register-container {
-            margin: 25px 0;
+            margin: 25px 0 15px 0;
             text-align: center;
         }
 
@@ -84,6 +84,54 @@
 
         .btn-register:active {
             transform: scale(0.97);
+        }
+
+        /* NEW SECTION: REPOSITORY & RESOURCE BUTTONS */
+        .materials-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-material {
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-material.active-repo {
+            background: #24292e; /* GitHub Brand Color */
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .btn-material.active-repo:active {
+            transform: scale(0.97);
+        }
+
+        .btn-material.inactive-resource {
+            background: #e4e2da;
+            color: #8a8880;
+            border: 1px solid #d1cfc6;
+            cursor: not-allowed;
+            pointer-events: none; /* Disables click interactions fully */
+            opacity: 0.75;
+        }
+
+        .btn-material.inactive-resource span {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-left: 5px;
+            font-weight: 500;
         }
 
         /* SECTION 3: 3 VIDEO WINDOWS VISIBLE ON ONE SCREEN */
@@ -267,6 +315,23 @@
     <div class="register-container">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?usp=header" class="btn-register" target="_blank">
             Register
+        </a>
+    </div>
+
+    <div class="section-title">Conference Assets</div>
+    <div class="materials-container">
+        <a href="https://github.com" class="btn-material active-repo" target="_blank">
+            GitHub Repository
+        </a>
+        
+        <a href="#" class="btn-material inactive-resource">
+            Conference Button<span>(Soon)</span>
+        </a>
+        <a href="#" class="btn-material inactive-resource">
+            Book of Abstracts<span>(Soon)</span>
+        </a>
+        <a href="#" class="btn-material inactive-resource">
+            Conference Proceedings<span>(Soon)</span>
         </a>
     </div>
 
