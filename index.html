@@ -2,395 +2,225 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Olives 2026 — EU Scientific Conference</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olive Conference 2026</title>
     <style>
-        /* Mobile Performance Optimization Utilities */
-        html {
-            scroll-behavior: smooth;
-            -webkit-tap-highlight-color: transparent;
+        /* Mobile-Only Wrapper Rules */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: #eceff1;
+            display: flex;
+            justify-content: center;
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        
+        /* Enforces an elegant smartphone viewport on desktop and perfect fit on mobile */
+        .container { 
+            max-width: 480px; 
+            width: 100%;
+            background: white; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        /* Active Viewport Toggle States */
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
+        
+        h1, h2, h3 { color: #2E7D32; margin-top: 0; }
+        p { line-height: 1.5; color: #37474F; font-size: 0.95rem; }
+        
+        .hero { 
+            padding: 30px 20px; 
+            background: #F1F8E9; 
+            text-align: center;
+        }
+        
+        .carousel-placeholder {
+            background: linear-gradient(135deg, #2E7D32, #558B2F); 
+            height: 180px; 
+            border-radius: 15px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            font-size: 1.1rem;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .video-section { padding: 30px 20px; text-align: center; }
+        .video-box { 
+            background: #000; 
+            height: 200px; 
+            border-radius: 15px; 
+            margin: 20px 0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+        }
+        
+        .benefit-list { text-align: left; padding-left: 20px; margin: 15px 0; }
+        .benefit-list li { margin-bottom: 10px; font-size: 0.9rem; }
+
+        .description { padding: 30px 20px; background: #2E7D32; color: white; text-align: center; }
+        .description p { color: #DCEDC8; font-size: 1.1rem; margin: 0; }
+
+        .program { padding: 30px 20px; }
+        .program-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .program-card { background: #F1F8E9; padding: 15px; border-radius: 10px; border-left: 4px solid #2E7D32; }
+        .program-card h3 { margin-bottom: 5px; font-size: 1.05rem; }
+        .program-card p { margin: 5px 0 0 0; font-size: 0.85rem; }
+
+        .sponsors { padding: 30px 20px; background: #F1F8E9; }
+        .sponsors-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .sponsor-card { background: white; padding: 12px; border-radius: 8px; text-align: center; font-size: 0.85rem; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+        /* Integrated Form Presentation Frame */
+        .form-section {
+            padding: 30px 0;
+            background: #fafafa;
+            text-align: center;
+            border-top: 2px dashed #E0E0E0;
+        }
+        .form-frame-wrapper {
+            width: 100%;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        iframe {
+            width: 100%;
+            height: 750px;
+            border: none;
+        }
+
+        /* Sticky Bottom Navigation Call to Action */
+        .sticky-cta {
+            position: sticky;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            padding: 12px 20px;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 1px solid #E0E0E0;
+            z-index: 999;
+        }
+
+        .btn { 
+            background: #2E7D32; 
+            color: white; 
+            padding: 14px 0; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            display: inline-block; 
+            font-weight: bold; 
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+            transition: transform 0.1s ease-in-out;
+            width: 90%;
+            font-size: 1rem;
+        }
+        .btn:active { transform: scale(0.97); }
     </style>
 </head>
-<body class="bg-neutral-50 text-neutral-800 antialiased flex flex-col min-h-screen">
+<body>
 
-    <header class="sticky top-0 z-50 bg-emerald-950 text-white shadow-md px-4 py-3 flex justify-between items-center border-b border-emerald-900">
-        <div class="flex flex-col">
-            <span class="text-base font-black tracking-tight leading-none">Olives 2026</span>
-            <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider mt-0.5">EU Conference</span>
-        </div>
-        <a href="javascript:void(0);" onclick="switchTab('attend')" class="bg-amber-500 hover:bg-amber-600 text-neutral-950 font-bold text-xs px-3 py-2 rounded-full shadow-xs active:scale-95 transition-transform">
-            Register Now
-        </a>
-    </header>
-
-    <main class="flex-grow max-w-md mx-auto w-full bg-white shadow-xs pb-24">
+    <div class="container">
         
-        <section class="bg-gradient-to-b from-emerald-950 to-emerald-900 text-white px-5 py-6 text-center relative overflow-hidden">
-            <h1 class="text-2xl font-black tracking-tight mb-1">Olives 2026</h1>
-            <p class="text-xs text-emerald-300 font-medium max-w-xs mx-auto">
-                     "Olive Oil & Table Olives"
-            </p>
-        </section>
-
-        <section class="p-4 bg-neutral-100 border-b border-neutral-200">
-            <h2 class="text-[11px] uppercase font-extrabold text-neutral-500 tracking-wider mb-2.5 flex items-center">
-                <span class="inline-block w-2 h-2 rounded-full bg-red-600 animate-pulse mr-1.5"></span>
-                Live Technical Streams
-            </h2>
+        <div class="hero">
+            <h1>International Conference on Olive Oil & Table Olives</h1>
+            <p><strong>📅 When:</strong> September 26-30, 2026</p>
+            <p><strong>📍 Where:</strong> College of Europe, Bruges, Belgium</p>
+            <p><strong>👥 Who:</strong> Researchers, Tech Leaders & Agriculture Agencies</p>
             
-            <div class="grid grid-cols-3 gap-1.5 w-full">
-                <div class="bg-white p-1 rounded border border-neutral-200 flex flex-col shadow-2xs overflow-hidden">
-                    <div class="relative w-full aspect-video bg-neutral-900 rounded overflow-hidden">
-                        <video class="w-full h-full object-cover" autoplay loop muted playsinline preload="auto">
-                            <source src="shartimi i ullirit.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <span class="text-[9px] font-bold text-center mt-1 text-neutral-600 truncate">Field Grafting</span>
-                </div>
+            <div class="carousel-placeholder">
+                Image Carousel Here
+            </div>
+            
+            <a href="#registration-form" class="btn" style="width: 80%; font-size: 0.9rem; padding: 10px 0;">Jump to Registration</a>
+        </div>
 
-                <div class="bg-white p-1 rounded border border-neutral-200 flex flex-col shadow-2xs overflow-hidden">
-                    <div class="relative w-full aspect-video bg-neutral-900 rounded overflow-hidden">
-                        <video class="w-full h-full object-cover" autoplay loop muted playsinline preload="auto">
-                            <source src="vaj ulliri mulli.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <span class="text-[9px] font-bold text-center mt-1 text-neutral-600 truncate">Milling</span>
-                </div>
+        <div class="video-section">
+            <h2>Why Attend?</h2>
+            <div class="video-box">
+                🎥 Conference Video (15 seconds)
+            </div>
+            <ul class="benefit-list">
+                <li>🔗 DOI - Permanent digital access</li>
+                <li>📚 ISBN & ISSN published proceedings</li>
+                <li>🔍 Google Scholar indexed & DG AGRI archived</li>
+                <li>✅ ORCID Compliant & ROR Integrated</li>
+                <li>🤝 Make New Connections!</li>
+            </ul>
+        </div>
 
-                <div class="bg-white p-1 rounded border border-neutral-200 flex flex-col shadow-2xs overflow-hidden">
-                    <div class="relative w-full aspect-video bg-neutral-900 rounded overflow-hidden">
-                        <video class="w-full h-full object-cover" autoplay loop muted playsinline preload="auto">
-                            <source src="vaj ulliri prodhim 3.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <span class="text-[9px] font-bold text-center mt-1 text-neutral-600 truncate">Production Line</span>
+        <div class="description">
+            <h2>About the Conference</h2>
+            <p>Global summit on olive oil quality, regulatory standards, and agricultural innovation for researchers, industry leaders, and policymakers.</p>
+        </div>
+
+        <div class="program">
+            <h2 style="text-align: center; margin-bottom: 20px;">Conference Program</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <h3>1. Regulatory Harmonization</h3>
+                    <p>Harmonizing Conformity Checks Across Member States</p>
+                </div>
+                <div class="program-card">
+                    <h3>2. Quality Control & Categorization</h3>
+                    <p>Differentiating Extra Virgin and Virgin Olive Oil</p>
+                </div>
+                <div class="program-card">
+                    <h3>3. Product Deterioration & Logistics</h3>
+                    <p>Impacts of Transport and Storage on Organoleptic Defects</p>
+                </div>
+                <div class="program-card">
+                    <h3>4. International Trade Standards</h3>
+                    <p>Integrating International Olive Council Analytical Updates</p>
+                </div>
+                <div class="program-card">
+                    <h3>5. Administrative Enforcement</h3>
+                    <p>Notifying Non-Compliance via Implementing Regulation (EU) 2019/1715</p>
+                </div>
+                <div class="program-card">
+                    <h3>6. Food Dispute Resolution</h3>
+                    <p>Panel Selection Criteria for Product Counter-Assessments</p>
                 </div>
             </div>
-        </section>
-
-        <div class="px-4 py-5">
-            
-            <section id="program-view" class="tab-content active">
-                <div class="flex items-center justify-between mb-4 pb-2 border-b border-neutral-100">
-                    <h2 class="text-base font-black text-neutral-900 flex items-center">
-                        <span class="mr-2 text-emerald-800">📋</span> Conference Program
-                    </h2>
-                    <span class="text-[10px] bg-emerald-100 text-emerald-900 font-bold px-2 py-0.5 rounded-full">15 Sessions</span>
-                </div>
-                
-                <div class="space-y-2.5">
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">1. Regulatory Harmonization</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> EU Marketing Standards for Agricultural Goods</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Harmonizing Conformity Checks Across Member States</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">2. Quality Control & Categorization</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Sensory Evaluation in Food Classification</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Differentiating Extra Virgin and Virgin Olive Oil</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">3. Product Deterioration & Logistics</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Post-Production Quality Degradation</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Impacts of Transport and Storage on Organoleptic Defects</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">4. International Trade Standards</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Global Food Chemistry Methodologies</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Integrating International Olive Council Analytical Updates</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">5. Administrative Enforcement</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> European Union Anti-Fraud Systems</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Notifying Non-Compliance via Implementing Regulation (EU) 2019/1715</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">6. Food Dispute Resolution</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Legal Appeals in Agrifood Inspection</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Panel Selection Criteria for Product Counter-Assessments</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">7. Laboratory Standards & Metrology</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Chemical Profiling of Agricultural Fats</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Updating Legal Methods for Verifying Oil Characteristics</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">8. Consumer Protection Law</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Preventing Deceptive Practices in Agribusiness</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Identifying Intentional Actions to Deceive Food Purchasers</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">9. Corporate Accountability</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Liability Structures in Agrifood Marketing</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Legal Responsibilities of Operators Appearing on Food Labels</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">10. Audit Methodology</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Field Sampling Protocols for Market Audits</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Resolving Regulatory Conflicts in Sample Collection Methods</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">11. Economic Enforcement Costing</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Financial Burden of Quality Disputes</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Operator Cost Liability for Failed Food Counter-Assessments</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">12. Institutional Decision-making</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> EU Commission Implementing Mechanisms</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Role of the Committee for Common Organisation of Agri-Markets</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">13. Regulatory Compliance Frameworks</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Legal Amending of Existing Food Statutes</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Revisiting Implementing Regulation (EU) 2022/2105 Measures</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">14. Transnational Trade Relations</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Cross-Border Food Quality Dispute Pipelines</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Bilateral Member State Notifications of Organoleptic Failure</p>
-                    </div>
-
-                    <div class="p-3 bg-neutral-50 border-l-4 border-emerald-800 rounded-r shadow-2xs">
-                        <div class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">15. Market Standardization Policy</div>
-                        <p class="text-xs text-neutral-700 mt-0.5"><b class="text-neutral-900">Topic:</b> Common Agricultural Policy Market Standards</p>
-                        <p class="text-xs text-neutral-600"><b class="text-neutral-900">Subtopic:</b> Application of Article 90a and 91 of Regulation 1308/2013</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="committees-view" class="tab-content">
-                <div class="flex items-center mb-4 pb-2 border-b border-neutral-100">
-                    <h2 class="text-base font-black text-neutral-900 flex items-center">
-                        <span class="mr-2 text-emerald-800">🏛️</span> Boards & Committees
-                    </h2>
-                </div>
-
-                <div class="mb-5">
-                    <h3 class="text-[10px] uppercase font-black tracking-wider text-emerald-950 bg-neutral-100 px-2 py-1 rounded mb-2">
-                        Conference Advisory Panel
-                    </h3>
-                    <div class="bg-neutral-50 border border-neutral-100 rounded divide-y divide-neutral-200/60 px-3 text-xs">
-                        <div class="py-2"><p class="font-bold text-neutral-900">Manfred W. Wiebelt</p><p class="text-[11px] text-neutral-500">Kiel Institute for the World Economy</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Harmen Lehment</p><p class="text-[11px] text-neutral-500">Kiel Institute for the World Economy</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Olive Lenk</p><p class="text-[11px] text-neutral-500">Ludwig-Maximilians-Universität München</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Maria Rocca</p><p class="text-[11px] text-neutral-500">Ludwig-Maximilians-Universität München</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Juliane Mohr</p><p class="text-[11px] text-neutral-500">Friedrich Schiller University Jena</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">ORHAN EREN</p><p class="text-[11px] text-neutral-500">Bursa Technical University</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Nurdan Akbaş</p><p class="text-[11px] text-neutral-500">Dokuz Eylül University</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">AYSUN SEHİRLİ</p><p class="text-[11px] text-neutral-500">University of Saskatchewan</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Aysun Ələsgərova Aysun</p><p class="text-[11px] text-neutral-500">Nakhchivan State University</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Ols Tengera</p><p class="text-[11px] text-neutral-500">University of Rwanda</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Oliver Khaliq</p><p class="text-[11px] text-neutral-500">University of KwaZulu-Natal</p></div>
-                    </div>
-                </div>
-
-                <div class="mb-5">
-                    <h3 class="text-[10px] uppercase font-black tracking-wider text-emerald-950 bg-neutral-100 px-2 py-1 rounded mb-2">
-                        Conference Reviewer Committee
-                    </h3>
-                    <div class="bg-neutral-50 border border-neutral-100 rounded divide-y divide-neutral-200/60 px-3 text-xs">
-                        <div class="py-2"><p class="font-bold text-neutral-900">Ibette And</p><p class="text-[11px] text-neutral-500">Cornell University</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Oya Köseoğlu</p><p class="text-[11px] text-neutral-500">Martin Luther Universität Halle-Wittenberg</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">ADNAN DAGDELE</p><p class="text-[11px] text-neutral-500">Western Norway University of Applied Sciences</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Nand Aytaç Gümüşkesen</p><p class="text-[11px] text-neutral-500">Hajee Mohammad Danesh Science and Technology University</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Le Yu</p><p class="text-[11px] text-neutral-500">Chinese University of Hong Kong</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Yongjin Wang</p><p class="text-[11px] text-neutral-500">Kyoto Tachibana University</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Jun Jin</p><p class="text-[11px] text-neutral-500">American Oil Chemists' Society</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Gangcheng Wu</p><p class="text-[11px] text-neutral-500">University of Udine</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Dr. Subrata Sarkar</p><p class="text-[11px] text-neutral-500">Odisha University of Agriculture and Technology</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Qingzhe Jinand</p><p class="text-[11px] text-neutral-500">Universidad Autónoma de San Luis Potosí</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Xingguo Wang</p><p class="text-[11px] text-neutral-500">Universidad Nacional de Mar del Plata</p></div>
-                        <div class="py-2"><p class="font-bold text-neutral-900">Pinkesh Shah</p><p class="text-[11px] text-neutral-500">Gujarat Technological University, India</p></div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-[10px] uppercase font-black tracking-wider text-emerald-950 bg-neutral-100 px-2 py-1 rounded mb-2">
-                        Conference Technical Panel
-                    </h3>
-                    <div class="space-y-2">
-                        <div class="p-2.5 bg-neutral-50 border border-neutral-200 rounded text-xs">
-                            <p class="font-bold text-neutral-900">Zamzam Elmi</p>
-                            <p class="text-[10px] text-neutral-500 font-mono mt-0.5">ORCID: 0009-0003-4664-7344</p>
-                            <p class="text-[11px] text-neutral-600 mt-0.5">Lappeenranta-Lahti University of Technology</p>
-                        </div>
-                        <div class="p-2.5 bg-neutral-50 border border-neutral-200 rounded text-xs">
-                            <p class="font-bold text-neutral-900">Maryam Paknahad</p>
-                            <p class="text-[10px] text-neutral-500 font-mono mt-0.5">ORCID: 0009-0000-9428-6780</p>
-                            <p class="text-[11px] text-neutral-600 mt-0.5">Lorestan University of Medical Sciences</p>
-                        </div>
-                        <div class="p-2.5 bg-neutral-50 border border-neutral-200 rounded text-xs">
-                            <p class="font-bold text-neutral-900">Parvin Alizada Parvin</p>
-                            <p class="text-[10px] text-neutral-500 font-mono mt-0.5">ORCID: 0009-0008-0526-4757</p>
-                            <p class="text-[11px] text-neutral-600 mt-0.5">Azerbaijan University</p>
-                        </div>
-                        <div class="p-2.5 bg-neutral-50 border border-neutral-200 rounded text-xs">
-                            <p class="font-bold text-neutral-900">Parvin Rajabi</p>
-                            <p class="text-[10px] text-neutral-500 font-mono mt-0.5">ORCID: 0009-0006-3639-9318</p>
-                            <p class="text-[11px] text-neutral-600 mt-0.5">University of Isfahan</p>
-                        </div>
-                        <div class="p-2.5 bg-neutral-50 border border-neutral-200 rounded text-xs">
-                            <p class="font-bold text-neutral-900">Mohammad Saeed Tadayon</p>
-                            <p class="text-[10px] text-neutral-500 font-mono mt-0.5">ORCID: 0000-0003-4026-7407</p>
-                            <p class="text-[11px] text-neutral-600 mt-0.5">Shirraz University, Soil and Water Research Institute (SWRI)</p>
-                        </div>
-                        <div class="p-2.5 bg-neutral-50 border border-neutral-200 rounded text-xs">
-                            <p class="font-bold text-neutral-900">Seyed Mashaallah Hosseini</p>
-                            <p class="text-[10px] text-neutral-500 font-mono mt-0.5">ORCID: 0000-0002-4394-973X</p>
-                            <p class="text-[11px] text-neutral-600 mt-0.5">Shirraz University, Soil and Water Research Institute (SWRI)</p>
-                        </div>
-                        <div class="p-2.5 bg-neutral-50 border border-neutral-200 rounded text-xs">
-                            <p class="font-bold text-neutral-900">Sohrab Sadeghi</p>
-                            <p class="text-[10px] text-neutral-500 font-mono mt-0.5">ORCID: 0000-0002-1022-891X</p>
-                            <p class="text-[11px] text-neutral-600 mt-0.5">Fars agriculture research and education center</p>
-                        </div>
-                        <div class="p-2.5 bg-neutral-50 border border-neutral-200 rounded text-xs">
-                            <p class="font-bold text-neutral-900">Tassneem Zamzam</p>
-                            <p class="text-[10px] text-neutral-500 font-mono mt-0.5">ORCID: 0000-0002-7862-4820</p>
-                            <p class="text-[11px] text-neutral-600 mt-0.5">Qatar Petrochemical Company Ltd</p>
-                        </div>
-                        <div class="p-2.5 bg-neutral-50 border border-neutral-200 rounded text-xs">
-                            <p class="font-bold text-neutral-900">Andrea Olivé Olivé</p>
-                            <p class="text-[10px] text-neutral-500 font-mono mt-0.5">ORCID: 0000-0002-6844-1190</p>
-                            <p class="text-[11px] text-neutral-600 mt-0.5">Autonomous University of Barcelona</p>
-                        </div>
-                        <div class="p-2.5 bg-neutral-50 border border-neutral-200 rounded text-xs">
-                            <p class="font-bold text-neutral-900">Olive Cocoman</p>
-                            <p class="text-[10px] text-neutral-500 font-mono mt-0.5">ORCID: 0000-0002-6898-008X</p>
-                            <p class="text-[11px] text-neutral-600 mt-0.5">World Health Organization</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="attend-view" class="tab-content">
-                <div class="flex items-center mb-4 pb-2 border-b border-neutral-100">
-                    <h2 class="text-base font-black text-neutral-900 flex items-center">
-                        <span class="mr-2 text-emerald-800">🌟</span> Attending Details
-                    </h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="bg-gradient-to-r from-emerald-900 to-emerald-950 text-white p-5 rounded-xl text-center shadow-md">
-                        <h3 class="font-black text-sm uppercase tracking-wide text-emerald-300">Registration Portal</h3>
-                        <p class="text-xs text-neutral-200 mt-1 mb-4">Register at Olives 2026! or Share the notice.</p>
-                        <button onclick="alert('System Notice: Access registration pathway validated successfully.')" class="w-full bg-amber-500 hover:bg-amber-600 text-neutral-950 font-black text-xs py-3 rounded-lg shadow-xs transition transform active:scale-98">
-                            Register for the Conference
-                        </button>
-                    </div>
-
-                    <div class="border border-neutral-200 rounded-xl p-4 bg-neutral-50">
-                        <h4 class="text-xs uppercase font-extrabold text-neutral-400 tracking-wider mb-3">Five Reasons to Attend:</h4>
-                        <ul class="space-y-3.5">
-                            <li class="flex items-start">
-                                <span class="bg-emerald-800 text-white font-bold text-[10px] px-1.5 py-0.5 rounded mr-2.5 mt-0.5">1</span>
-                                <p class="text-xs text-neutral-700 leading-relaxed">
-                                    <strong class="text-neutral-900 block">Metadata, abstracts, and citation records</strong>
-                                    Catalogued peer-reviewed scholarly publication .
-                                </p>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-emerald-800 text-white font-bold text-[10px] px-1.5 py-0.5 rounded mr-2.5 mt-0.5">2</span>
-                                <p class="text-xs text-neutral-700 leading-relaxed">
-                                    <strong class="text-neutral-900 block">Scientific Index</strong>
-                                    Proceedings with ISBN and ISSN.
-                                </p>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-emerald-800 text-white font-bold text-[10px] px-1.5 py-0.5 rounded mr-2.5 mt-0.5">3</span>
-                                <p class="text-xs text-neutral-700 leading-relaxed">
-                                    <strong class="text-neutral-900 block">Research database</strong>
-                                    Proceedings archived on DG AGRI repository.
-                                </p>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-emerald-800 text-white font-bold text-[10px] px-1.5 py-0.5 rounded mr-2.5 mt-0.5">4</span>
-                                <p class="text-xs text-neutral-700 leading-relaxed">
-                                    <strong class="text-neutral-900 block">DOI and System Compliance</strong>
-                                    DOI, ORCID Compliant and ROR Integrated.
-                                </p>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-emerald-800 text-white font-bold text-[10px] px-1.5 py-0.5 rounded mr-2.5 mt-0.5">5</span>
-                                <p class="text-xs text-neutral-700 leading-relaxed">
-                                    <strong class="text-neutral-900 block">Professional Development</strong>
-                                    Make New Connections!
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
         </div>
-    </main>
 
-    <nav class="fixed bottom-0 left-0 right-0 z-50 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-neutral-200 shadow-xl flex justify-around items-center h-16 px-1">
-        <button onclick="switchTab('program')" id="btn-program" class="flex flex-col items-center justify-center w-full h-full text-emerald-800 transition-colors">
-            <span class="text-lg">📋</span>
-            <span class="text-[10px] font-bold mt-0.5">Program</span>
-        </button>
-        <button onclick="switchTab('committees')" id="btn-committees" class="flex flex-col items-center justify-center w-full h-full text-neutral-400 transition-colors">
-            <span class="text-lg">🏛️</span>
-            <span class="text-[10px] font-medium mt-0.5">Committees</span>
-        </button>
-        <button onclick="switchTab('attend')" id="btn-attend" class="flex flex-col items-center justify-center w-full h-full text-neutral-400 transition-colors">
-            <span class="text-lg">🌟</span>
-            <span class="text-[10px] font-medium mt-0.5">Attend</span>
-        </button>
-    </nav>
+        <div class="sponsors">
+            <h2 style="text-align: center; margin-bottom: 20px;">Sponsors & Supporters</h2>
+            <div class="sponsors-grid">
+                <div class="sponsor-card">FAO</div>
+                <div class="sponsor-card">European Commission</div>
+                <div class="sponsor-card">DG AGRI</div>
+                <div class="sponsor-card">College of Europe</div>
+                <div class="sponsor-card">UPC Barcelona</div>
+                <div class="sponsor-card">UN HABITAT</div>
+                <div class="sponsor-card">UNIDO</div>
+                <div class="sponsor-card">WIPO</div>
+                <div class="sponsor-card">WCO</div>
+                <div class="sponsor-card">RPI</div>
+            </div>
+        </div>
 
-    <script>
-        function switchTab(tabKey) {
-            // Deactivate and hide all view wrappers
-            document.querySelectorAll('.tab-content').forEach(element => {
-                element.classList.remove('active');
-            });
+        <div class="form-section" id="registration-form">
+            <h2>Secure Your Seat</h2>
+            <p style="margin-bottom: 20px; padding: 0 20px;">Fill out the official form below to register instantly. No login required.</p>
             
-            // Revert all control styling elements back to default inactive properties
-            const buttons = ['program', 'committees', 'attend'];
-            buttons.forEach(key => {
-                const node = document.getElementById(`btn-${key}`);
-                node.classList.remove('text-emerald-800', 'font-bold');
-                node.classList.add('text-neutral-400', 'font-medium');
-            });
+            <div class="form-frame-wrapper">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfonH8HYyiyJi7FHdf4oTSmqQaK_cvilcT5g1fOlwif1pF55w/viewform?embedded=true">
+                    Loading…
+                </iframe>
+            </div>
+        </div>
 
-            // Target selected layout view state
-            document.getElementById(`${tabKey}-view`).classList.add('active');
-            
-            // Inject targeted focus state design parameters
-            const targetBtn = document.getElementById(`btn-${tabKey}`);
-            targetBtn.classList.remove('text-neutral-400', 'font-medium');
-            targetBtn.classList.add('text-emerald-800', 'font-bold');
+        <div class="sticky-cta">
+            <a href="#registration-form" class="btn">Register For Event</a>
+        </div>
+        
+    </div>
 
-            // Instantly snap scroll viewport cleanly to top of view bounds on swipe actions
-            window.scrollTo({ top: 0, behavior: 'instant' });
-        }
-
-        // Initialize display configuration defaults
-        document.addEventListener("DOMContentLoaded", function() {
-            switchTab('program');
-        });
-    </script>
 </body>
 </html>
